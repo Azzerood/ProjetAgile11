@@ -1,1 +1,0 @@
-# DRAGG'ENDA, l'agenda du futur!
