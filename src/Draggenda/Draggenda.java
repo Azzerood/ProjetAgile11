@@ -13,14 +13,10 @@ public class Draggenda {
 		Evenement testEvent = new Evenement("nomTest","desriptionTest1",new Date(01,9,2016),new Date(01,9,2016),new Heure(10,00),new Heure(11,00), participantsTest,true);
 		System.out.println(testEvent.toString());
 		Agenda agendaTest = new Agenda();
-		Evenement testEvent2 = new Evenement("Event 2","desriptionTest2",new Date(01,10,2016),new Date(01,9,2016),new Heure(10,00),new Heure(11,00), participantsTest,true);
-		Evenement testEvent3 = new Evenement("Event 3","desriptionTest3",new Date(14,12,2016),new Date(01,9,2016),new Heure(10,00),new Heure(11,00), participantsTest,true);
-		Evenement Creation=new MenuCreationEvent().CreeEvent();
 		agendaTest.ajouterEvenement(testEvent);
-		agendaTest.ajouterEvenement(testEvent2);
-		agendaTest.ajouterEvenement(testEvent3);
-		agendaTest.ajouterEvenement(Creation);
-		agendaTest.afficher();
+		Menu menuPrincipal = new Menu(agendaTest);
+		menuPrincipal.DeroulerMenu();
+		
 	}
 	
 }

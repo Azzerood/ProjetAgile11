@@ -5,16 +5,22 @@ import java.util.Scanner;
 public class Menu {
 
 	Scanner sc = new Scanner(System.in);
-
+	Agenda agenda;
+	
 	public Menu() {
 	}
 
+	public Menu(Agenda agenda) {
+	this.agenda = agenda;
+	}
 	public void Showagenda( Agenda agenda) {
 		agenda.afficher();
 	}
 
 	public Evenement CreateEvent() {
-		return new MenuCreationEvent().CreeEvent();
+		Evenement event= new MenuCreationEvent().CreeEvent();
+		System.out.println("L'évènement "+event.getNom()+" a été crée à la date "+event.getDateDepart()+" à "+event.getHeureDepart()+" et finira le "+event.getDateFin()+" à "+event.getDateFin());
+		return event;
 	}
 
 	public void SearchUsers() {
@@ -52,11 +58,16 @@ public class Menu {
 	}
 
 	public void DeroulerMenu() {
+		int choix ;
+		do{
 		AfficherMenu();
-		SaisieNombre();
+		String rep=SaisieNombre();
+		choix = VerifNombre(rep);
+		LancerAction(choix, agenda);
+		}while(choix<3);
 	}
 
 	public String TexteMenu() {
-		return "Votre Menu d'actions\n1- Consulter votre agenda\n2- Crï¿½er un ï¿½vï¿½nement\n3- Recherche d'utilisateur";
+		return "Votre Menu d'actions\n1- Consulter votre agenda\n2- Creer un événement\n3- Quitter";
 	}
 }
