@@ -16,10 +16,10 @@ public class Agenda {
 	}
 
 	public void ajouterEvenement(Evenement e) {
-		if (calendrier.isEmpty())
+		//if (calendrier.isEmpty())
 			calendrier.add(e);
 
-		else {
+		/*else {
 			int cpt = 1;
 			for (Evenement e1 : calendrier) {
 				if (e1.getDateDepart().compareTo(e.getDateDepart()) == 1
@@ -29,6 +29,6 @@ public class Agenda {
 
 				cpt++;
 			}
-		}
+		}*/
 	}
 }
