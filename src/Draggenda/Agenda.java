@@ -10,10 +10,13 @@ public class Agenda {
 		if (calendrier.isEmpty())
 			System.out.println("Votre agenda est vide. Pensez à créer des evenements ;)");
 		else {
-			//this.trierCalendrier();
+			System.out.println("===============Mon Agenda===============");
 			for (Evenement e : calendrier) {
+				System.out.println("----------------------------------------");
 				System.out.println(e.toStringresum());
+				System.out.println("----------------------------------------");
 			}
+			System.out.println("===============Fin Agenda===============");
 		}
 	}
 
@@ -54,4 +57,6 @@ public class Agenda {
 		}
 		return result;
 	}
+	
+	
 }
