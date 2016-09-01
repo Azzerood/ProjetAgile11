@@ -19,7 +19,7 @@ public class Menu {
 
 	public Evenement CreateEvent() {
 		Evenement event= new MenuCreationEvent().CreeEvent();
-		System.out.println("L'évènement "+event.getNom()+" a été crée à la date "+event.getDateDepart()+" à "+event.getHeureDepart()+" et finira le "+event.getDateFin()+" à "+event.getDateFin());
+		System.out.println("L'évènement "+event.getNom()+" a été crée à la date "+event.getDateDepart()+" à "+event.getHeureDepart()+" et finira le "+event.getDateFin()+" à "+event.getHeureFin());
 		return event;
 	}
 
