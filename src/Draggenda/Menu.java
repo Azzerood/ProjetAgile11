@@ -46,8 +46,8 @@ public class Menu {
 			Showagenda(agenda);
 		} else if (nb == 2) {
 			CreateEvent();
-		} else if (nb == 3) {
-			SearchUsers();
+		} else if (nb >2) {
+			
 		}
 	}
 
@@ -63,6 +63,7 @@ public class Menu {
 		choix = VerifNombre(rep);
 		LancerAction(choix, agenda);
 		}while(choix<3);
+		System.exit(1);
 	}
 
 	public String TexteMenu() {
