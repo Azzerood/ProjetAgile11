@@ -34,7 +34,7 @@ public class Agenda {
 		}
 	}
 	
-	public ArrayList<Evenement> trierDateDebut(Date d){
+	public ArrayList<Evenement> rechercherDateDebut(Date d){
 		ArrayList<Evenement> result = new ArrayList<>();
 		
 		for(Evenement e : calendrier){
@@ -44,7 +44,7 @@ public class Agenda {
 		return result;
 	}
 	
-	public ArrayList<Evenement> trierNom(String nom){
+	public ArrayList<Evenement> rechercherNom(String nom){
 		ArrayList<Evenement> result = new ArrayList<>();
 		
 		for(Evenement e : calendrier){
