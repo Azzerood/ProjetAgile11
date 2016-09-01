@@ -3,8 +3,7 @@ package Draggenda;
 import java.util.ArrayList;
 
 public class Evenement {
-
-
+	
 	private String nom;
 	private String description;
 	private Date dateDepart, dateFin;
