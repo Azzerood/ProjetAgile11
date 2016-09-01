@@ -12,7 +12,7 @@ public class Agenda {
 		else {
 			//this.trierCalendrier();
 			for (Evenement e : calendrier) {
-				System.out.println(e.toString());
+				System.out.println(e.toStringresum());
 			}
 		}
 	}
