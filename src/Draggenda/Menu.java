@@ -44,14 +44,14 @@ public class Menu {
 		}
 	}
 	public  void AfficherMenu(){		
-		System.out.println(new Menu().toString());
+		System.out.println(new Menu().TexteMenu());
 		
 	}
 	public void DeroulerMenu(){
 		AfficherMenu();
 		SaisieNombre();
 	}
-	public String afficherMenu(){
+	public String TexteMenu(){
 		return "Votre Menu d'actions\n1- Consulter votre agenda\n2- Créer un événement\n3- Recherche d'utilisateur";
 	}
 }
