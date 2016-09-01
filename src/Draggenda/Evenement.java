@@ -48,6 +48,54 @@ public class Evenement {
 				+ heureDepart + "\nHeureFin : " + heureFin + "\nParticipants : " + participants + ".";
 	}
 
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public ArrayList<String> getParticipants() {
+		return participants;
+	}
+
+	public void setParticipants(ArrayList<String> participants) {
+		this.participants = participants;
+	}
+
+	public boolean isPubli() {
+		return publi;
+	}
+
+	public void setPubli(boolean publi) {
+		this.publi = publi;
+	}
+
+	public void setDateDepart(Date dateDepart) {
+		this.dateDepart = dateDepart;
+	}
+
+	public void setDateFin(Date dateFin) {
+		this.dateFin = dateFin;
+	}
+
+	public void setHeureDepart(Heure heureDepart) {
+		this.heureDepart = heureDepart;
+	}
+
+	public void setHeureFin(Heure heureFin) {
+		this.heureFin = heureFin;
+	}
+
 	
 
 }
