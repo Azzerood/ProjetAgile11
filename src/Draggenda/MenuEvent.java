@@ -33,6 +33,7 @@ public class MenuEvent {
 		int rep = sc.nextInt();
 		if (rep == 1) {
 			e.modifier();
+			
 		}
 	}
 
