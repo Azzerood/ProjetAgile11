@@ -11,7 +11,7 @@ public class Draggenda {
 		participantsTest.add("nom1"); 
 		participantsTest.add("nom2");
 		Evenement testEvent = new Evenement("nomTest","desriptionTest1",new Date(01,9,2016),new Date(01,9,2016),new Heure(10,00),new Heure(11,00), participantsTest,true);
-		System.out.println(testEvent.toString());
+		
 		Agenda agendaTest = new Agenda();
 		agendaTest.ajouterEvenement(testEvent);
 		Menu menuPrincipal = new Menu(agendaTest);
