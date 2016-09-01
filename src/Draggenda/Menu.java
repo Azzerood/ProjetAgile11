@@ -1,57 +1,97 @@
 package Draggenda;
+
 import java.util.Scanner;
 
 public class Menu {
-	
-	public Menu(){
-			
+
+	Scanner sc = new Scanner(System.in);
+
+	public Menu() {
 	}
-	public  void Showagenda(){
-		
+
+	public void Showagenda() {
 	}
-	public  void CreateEvent(){
-		
+
+	public void CreateEvent() {
 	}
-	public  void SearchUsers(){
-		
+
+	public void SearchUsers() {
 	}
-	public String SaisieNombre(){
+
+	public String SearchByEvent() {
+		System.out.println("Saisir l'Ã©venement Ã  rechercher");
+		String rep = sc.nextLine();
+		return rep;
+	}
+
+	public Date SearchByDateDepart() {
+		System.out.println("Saisir la date voulu sour le format JJ/MM/AAAA");
+		System.out.println("Ne pas Ã©crire les zÃ©ros inutils");
+		System.out.println("Saisir le jour");
+		int jour = sc.nextInt();
+		System.out.println("Saisir le mois");
+		int mois = sc.nextInt();
+		System.out.println("Saisir le annee");
+		int annee = sc.nextInt();
+		return new Date(jour, mois, annee);
+	}
+
+	public boolean ModifEvent() {
+		System.out.println("Voulez-vous modifier un Evenement ? (1=Oui)");
+		int rep = sc.nextInt();
+		if (rep == 1) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public boolean DeleteEvent() {
+		System.out.println("Voulez-vous supprimer un evenement ? (1=Oui)");
+		int rep = sc.nextInt();
+		if (rep == 1) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public String SaisieNombre() {
 		String nombre;
-		
-		Scanner sc=new Scanner(System.in);
+
 		System.out.println("Saisissez votre nombre");
-		String reponse=sc.nextLine();
-		
+		String reponse = sc.nextLine();
 		return reponse;
-		
-		
 	}
-	public int VerifNombre(String nb){
-		int nombre=-1;
-		if(nb.matches("[0-9][0-9]*")){
-			nombre=Integer.parseInt(nb);
+
+	public int VerifNombre(String nb) {
+		int nombre = -1;
+		if (nb.matches("[0-9][0-9]*")) {
+			nombre = Integer.parseInt(nb);
 		}
 		return nombre;
-		
 	}
-	public  void LancerAction(int nb){
-		if(nb==1){
+
+	public void LancerAction(int nb) {
+		if (nb == 1) {
 			Showagenda();
-		}else if(nb==2){
+		} else if (nb == 2) {
 			CreateEvent();
-		}else if(nb==3){
+		} else if (nb == 3) {
 			SearchUsers();
 		}
 	}
-	public  void AfficherMenu(){		
+
+	public void AfficherMenu() {
 		System.out.println(new Menu().TexteMenu());
-		
 	}
-	public void DeroulerMenu(){
+
+	public void DeroulerMenu() {
 		AfficherMenu();
 		SaisieNombre();
 	}
-	public String TexteMenu(){
-		return "Votre Menu d'actions\n1- Consulter votre agenda\n2- Créer un événement\n3- Recherche d'utilisateur";
+
+	public String TexteMenu() {
+		return "Votre Menu d'actions\n1- Consulter votre agenda\n2- Crï¿½er un ï¿½vï¿½nement\n3- Recherche d'utilisateur";
 	}
 }
