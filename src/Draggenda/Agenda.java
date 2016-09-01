@@ -17,33 +17,20 @@ public class Agenda {
 		}
 	}
 
-	public void ajouterEvenement(Evenement e) {
-		calendrier.add(e);
-	}
-
-	public void trierCalendrier() {
-
-	}
-
-	public ArrayList<Evenement> rechercheDateDepart(Date d) {
-		ArrayList<Evenement> result = new ArrayList<>();
-
-		for (Evenement e : calendrier) {
-			if (e.getDateDepart() == d)
-				result.add(e);
+	public void ajouterEvenement(Evenement e) {calendrier.add(e);}
+	
+	public void trierCalendrier(Evenement e){
+		int i=0;
+		while(e.getDateDepart().compareTo(calendrier.get(i).getDateDepart())==-1){
+			i++;
 		}
-		return result;
-	}
-	
-	public ArrayList<Evenement> rechercheNom(String nom) {
-		ArrayList<Evenement> result = new ArrayList<>();
-
-		for (Evenement e : calendrier) {
-			if (e.getNom().equals(nom))
-				result.add(e);
+		if(e.getDateDepart().compareTo(calendrier.get(i).getDateDepart())==1){
+			calendrier.add(i,e);
+		}else{
+			while(e.getHeureDepart().compareHeure(calendrier.get(i).getHeureDepart())==-1){
+				i++;
+			}
+				calendrier.add(i,e);
 		}
-		return result;
 	}
-	
-	
 }
