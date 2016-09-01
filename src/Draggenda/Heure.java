@@ -8,4 +8,8 @@ public class Heure {
 		this.heure=heure;
 		this.minutes=minutes;
 	}
+	
+	public String toString(){
+		return heure+":"+minutes;
+	}
 }
