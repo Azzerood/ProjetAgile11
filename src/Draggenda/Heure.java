@@ -10,6 +10,6 @@ public class Heure {
 	}
 	
 	public String toString(){
-		return heure+":"+minutes;
+		return heure+":"+(minutes<10? "0"+minutes:minutes);
 	}
 }
