@@ -1,14 +1,12 @@
 package Draggenda;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 public class EvenementTest {
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void toStringTest() { 
+		Evenement event=new Evenement(); 
 	}
 
 }
