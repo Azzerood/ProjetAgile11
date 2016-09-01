@@ -34,39 +34,15 @@ public class MenuCreationEvent {
 		String reponse=sc.nextLine();
 		return reponse;
 	}
-	public int VerifMois(String month){
-		int rep=-1;
-		if(rep >= 0 && rep <= 12 ){
-			rep=Integer.parseInt(month);
-		}
-		return rep;
+	public void VerifMois(String month){
+		
 	}
 	public String SaisirAnnee(){
 		System.out.println("Veuillez saisir l'année");
 		String reponse=sc.nextLine();
 		return reponse;
 	}
-	public int VerifAnnee(String year){
-		int rep=-1;
-		if(rep >=0 && rep <= 9999){
-			rep=Integer.parseInt(year);
-		}
-		return rep;
-	}
-	public String SaisirMinute(){
-		System.out.println("Veuillez saisir les minutes");
-		String reponse=sc.nextLine();
-		return reponse;
-	}
-	public int VerifMinute(String min){
-		int rep=-1;
-		if(rep >= 0 && rep <= 60){
-			rep=Integer.parseInt(min);
-		}
-		return rep;
-	}
-	public int VerifDateFin(Date debut,Date fin){
-		  
+	public void VerifAnnee(){
 		
 	}
 	public Evenement CreeEvent(){
@@ -82,6 +58,7 @@ public class MenuCreationEvent {
 		return reponse;
 		
 	}
+<<<<<<< HEAD
 	public void VerifHeure(String hour){
 		int rep=-1;
 		if(rep >= 0 && rep <= 12){
@@ -89,9 +66,16 @@ public class MenuCreationEvent {
 		}
 		String reponse1;
 		reponse1=SaisirHeure()+":"+SaisirMinute();
+=======
+	public void VerifHeure(){
+>>>>>>> branch 'master' of https://github.com/Azzerood/ProjetAgile11.git
 		
 	}
+<<<<<<< HEAD
 	public void VerifHeureFin(Heure debut, Heure fin){
+=======
+	public void VerifHeureFin(){
+>>>>>>> branch 'master' of https://github.com/Azzerood/ProjetAgile11.git
 		
 	}
 }
