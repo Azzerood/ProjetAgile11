@@ -17,6 +17,7 @@ public class MenuTest {
 	@Test
 	public void verifNombre() {
 		assertEquals( new Menu().VerifNombre("toto"), -1 );
+		assertEquals( new Menu().VerifNombre("8"), 8); 
 		assertEquals( new Menu().VerifNombre("1039"), 1039); 
 		
 	}
