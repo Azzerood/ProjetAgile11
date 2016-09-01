@@ -31,6 +31,21 @@ public class MenuCreationEventTest {
 		assertEquals(new MenuCreationEvent().VerifAnnee("20000"), -1);
 	}
 	
-	
+	@Test
+	public void  VerifHeure() {
+		assertEquals(new MenuCreationEvent().VerifHeure("123"), -1);
+		assertEquals(new MenuCreationEvent().VerifHeure("01"),1);
+		assertEquals(new MenuCreationEvent().VerifHeure("10"), 10);
+		assertEquals(new MenuCreationEvent().VerifHeure("14"), 14);
+		assertEquals(new MenuCreationEvent().VerifHeure("25"), 25);
+	}
+	@Test
+	public void  VerifMinute() {
+		assertEquals(new MenuCreationEvent().VerifMinute("123"), -1);
+		assertEquals(new MenuCreationEvent().VerifMinute("01"),1);
+		assertEquals(new MenuCreationEvent().VerifMinute("10"), 10);
+		assertEquals(new MenuCreationEvent().VerifMinute("14"), 14);
+		assertEquals(new MenuCreationEvent().VerifMinute("25"), 25);
+	}
 	
 }

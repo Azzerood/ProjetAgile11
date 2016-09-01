@@ -140,7 +140,7 @@ public class MenuCreationEvent {
 	
 	public int VerifHeure(String hour){
 		int rep=-1;
-		if(hour.matches("[0-24]")){
+		if(hour.matches("[0-9][0-9]")){
 			rep=Integer.parseInt(hour);
 		}
 		return rep;
@@ -149,7 +149,7 @@ public class MenuCreationEvent {
 	}
 	public int VerifMinute(String min){
 		int rep=-1;
-		if(min.matches("[0-60]")){
+		if(min.matches("[0-9][0-9]")){
 			rep=Integer.parseInt(min);
 		}
 		return rep;
