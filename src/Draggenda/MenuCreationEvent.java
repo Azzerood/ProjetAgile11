@@ -64,6 +64,7 @@ public class MenuCreationEvent {
 		int rep=-1;
 		if(rep >= 0 && rep <= 12){
 			rep=Integer.parseInt(hour);
+			
 		}
 		String reponse1;
 		reponse1=SaisirHeure()+":"+SaisirMinute();
