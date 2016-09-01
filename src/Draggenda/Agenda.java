@@ -33,4 +33,24 @@ public class Agenda {
 				calendrier.add(i,e);
 		}
 	}
+	
+	public ArrayList<Evenement> trierDateDebut(Date d){
+		ArrayList<Evenement> result = new ArrayList<>();
+		
+		for(Evenement e : calendrier){
+			if(e.getDateDepart()== d)
+				result.add(e);
+		}
+		return result;
+	}
+	
+	public ArrayList<Evenement> trierNom(String nom){
+		ArrayList<Evenement> result = new ArrayList<>();
+		
+		for(Evenement e : calendrier){
+			if(e.getNom().equals(nom))
+				result.add(e);
+		}
+		return result;
+	}
 }
