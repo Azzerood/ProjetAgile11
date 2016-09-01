@@ -34,6 +34,7 @@ public class Menu {
 			nombre = Integer.parseInt(nb);
 		}
 		return nombre;
+		
 	}
 
 	public void LancerAction(int nb) {
