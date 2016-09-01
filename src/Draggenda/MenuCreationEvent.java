@@ -131,7 +131,7 @@ public class MenuCreationEvent {
 				heure = saisieHeure();
 				System.out.println("Veuillez saisir la minute de fin de votre évènement (nombre)");
 				minute = saisieMinute();
-			}while(heureDebut.compareHeure(new Heure(heure,minute)) ==1 );
+			}while( (dateDebut.compareTo(dateFin)==0 && (heureDebut.compareHeure(new Heure(heure,minute)) ==1) ) );
 		heureFin = new Heure(heure, minute);
 	
 		event= new Evenement(nom, description , dateDebut, dateFin, heureDebut, heureFin , null, true);
