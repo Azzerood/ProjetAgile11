@@ -42,6 +42,7 @@ public class Agenda {
 				result.add(e);
 		}
 		return result;
+		
 	}
 	
 	public ArrayList<Evenement> rechercherNom(String nom){
