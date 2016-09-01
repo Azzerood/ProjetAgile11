@@ -10,8 +10,9 @@ public class Evenement {
 	private Date dateDepart, dateFin;
 	private Heure heureDepart, heureFin;
 	private ArrayList<String> participants;
+	private boolean publi;
 	
-	public Evenement(String nom, String description, Date dateDepart, Date dateFin, Heure heureDepart, Heure heureFin, ArrayList<String> participants){
+	public Evenement(String nom, String description, Date dateDepart, Date dateFin, Heure heureDepart, Heure heureFin, ArrayList<String> participants, boolean publi){
 		this.nom=nom;
 		this.description=description;
 		this.dateDepart=dateDepart;
@@ -19,6 +20,7 @@ public class Evenement {
 		this.heureDepart=heureDepart;
 		this.heureFin=heureFin;
 		this.participants=participants;
+		this.publi=publi;
 	}
 	
 	public Date getDateDepart(){
@@ -28,9 +30,21 @@ public class Evenement {
 	public Date getDateFin(){
 		return dateFin;
 	}
+	
+	public Heure getHeureDepart(){
+		return heureDepart;
+	}
+	
+	public Heure getHeureFin(){
+		return heureFin;
+	}
+	
+	public boolean getpublic(){
+		return publi;
+	}
 
 	public String toString() {
-		return "Nom : " + nom + "\nDescription : " + description + "\nDate de Debut : " + dateDepart + "Date de Fin : " + dateFin +"\nHeureDepart : "
+		return "Nom : " + nom + "\nDescription : " + description +"\nEvenement "+(publi? "Public":"Prive")+"\nDate de Debut : " + dateDepart + "Date de Fin : " + dateFin +"\nHeureDepart : "
 				+ heureDepart + "\nHeureFin : " + heureFin + "\nParticipants : " + participants + ".";
 	}
 
