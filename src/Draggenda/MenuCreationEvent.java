@@ -22,15 +22,19 @@ public class MenuCreationEvent {
 		String reponse=sc.nextLine();
 		return reponse;
 	}
-	public void VerifJour(){
-		
+	public int VerifJour(String day){
+		int rep=-1;
+		if(rep >= 1 && rep <= 31 ){
+			rep=Integer.parseInt(day);
+		}
+		return rep;
 	}
 	public String SaisirMois(){
 		System.out.println("Veuillez saisir le mois");
 		String reponse=sc.nextLine();
 		return reponse;
 	}
-	public void VerifMois(){
+	public void VerifMois(String month){
 		
 	}
 	public String SaisirAnnee(){
@@ -38,7 +42,7 @@ public class MenuCreationEvent {
 		String reponse=sc.nextLine();
 		return reponse;
 	}
-	public void VerifAnnee(){
+	public void VerifAnnee(String year){
 		
 	}
 	public String SaisirHeure(){
@@ -46,10 +50,10 @@ public class MenuCreationEvent {
 		String reponse=sc.nextLine();
 		return reponse;
 	}
-	public void VerifHeure(){
+	public void VerifHeure(String hour){
 		
 	}
-	public void VerifHeureFin(){
+	public void VerifHeureFin(String finalhour){
 		
 	}
 }
