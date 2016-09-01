@@ -20,4 +20,5 @@ public class Draggenda {
 		agendaTest.ajouterEvenement(testEvent3);
 		agendaTest.afficher();
 	}
+	
 }

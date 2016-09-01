@@ -53,15 +53,78 @@ public class MenuCreationEvent {
 		}
 		return rep;
 	}
+	public int saisieJour(){
+		int jour;
+		do{
+			String j=SaisirJour();
+			jour=VerifJour(j);
+			
+			}while(jour<0 || jour>32);
+		return jour;
+	}
+	public int saisieMois(){
+		int mois;
+		do{
+			String m=SaisirMois();
+			mois=VerifMois(m);
+			}while(mois<0 || mois>11);
+		return mois;
+	}
+	public int saisieAnnee(){
+		int annee;
+		do{
+			String a=SaisirAnnee();
+			annee=VerifAnnee(a);
+			}while(annee<2016 || annee>9999);
+		return annee;
+	}
+	public int saisieHeure(){
+		int heure;
+		do{
+			String h=SaisirHeure();
+			heure=VerifHeure(h);
+		}while(heure<0 || heure > 24);
+		return heure;
+	}
+	public int saisieMinute(){
+		int minute;
+		do{
+			String m=SaisirMinute();
+			minute=VerifMinute(m);
+		}while(minute<0 || minute >60);
+		return minute;
+	}
+	
 	public Evenement CreeEvent(){
+		Evenement event;
 		String nom=SaisirNom();
-		String descriptino=SaisirDescription();
-		String jour=SaisirJour();
-		String mois=SaisirMois();
-		String annee=SaisirAnnee();
-		String heure=SaisirHeure();
-		String minute=SaisirMinute();
+		String description=SaisirDescription();
 		
+		int jour = saisieJour();
+		int mois = saisieMois();
+		int annee = saisieAnnee();
+	
+		Date dateDebut=new Date (jour,mois,annee);
+		int heure = saisieHeure();
+		int minute = saisieMinute();
+		Heure heureDebut= new Heure(heure,minute);
+		Date dateFin;
+		Heure heureFin;
+		
+			do{
+			jour=saisieJour();
+			mois = saisieMois();
+			annee = saisieAnnee();
+			}while(dateDebut.compareTo(new Date(jour,mois,annee)) == 1);
+			dateFin = new Date(jour,mois,annee) ;
+			do{
+				 heure = saisieHeure();
+				 minute = saisieMinute();
+			}while(heureDebut.compareHeure(new Heure(heure,minute)) == 1);
+		heureFin = new Heure(heure, minute);
+	
+		event= new Evenement(nom, description , dateDebut, dateFin, heureDebut, heureFin , null, true);
+		return event;
 	}
 	public String SaisirHeure(){
 		System.out.println("Veuillez saisir l'heure");
