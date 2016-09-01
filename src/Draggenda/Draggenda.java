@@ -5,6 +5,11 @@ import java.util.ArrayList;
 public class Draggenda {
 
 	public static void main(String[] args) {
+		
+		Menu action = new Menu();
+		action.DeroulerMenu();
+		
+		
 		ArrayList<String> participantsTest = new ArrayList<String>();
 		participantsTest.add("nom1");
 		participantsTest.add("nom2");
