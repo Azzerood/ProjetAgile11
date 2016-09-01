@@ -34,8 +34,7 @@ public class Date {
 			return 29;
 		else if (mois == 2)
 			return 28;
-		else if (mois == 1 || mois == 3 || mois == 5 || mois == 7 || mois == 8
-				|| mois == 10 || mois == 12)
+		else if (mois == 1 || mois == 3 || mois == 5 || mois == 7 || mois == 8 || mois == 10 || mois == 12)
 			return 31;
 		else
 			return 30;
@@ -74,8 +73,33 @@ public class Date {
 	}
 
 	public String toString() {
-		return /*JourSemaine() + " " + */getJour() + " " + getMoisEnLettre()
-				+ " " + getAnnee() + "\n";
+		return /* JourSemaine() + " " + */getJour() + " " + getMoisEnLettre() + " " + getAnnee() + "\n";
+	}
+
+	public int compareTo(Date d) {
+		if (this.annee == d.annee && this.mois == d.mois && this.jour == d.jour) {
+			return 0;
+		}
+
+		else {
+			if (this.annee == d.annee) {
+				if(this.mois == d.mois){
+					if(this.jour < d.jour)
+						return 1;
+					else
+						return -1;
+				}
+				if(this.mois < d.mois)
+					return 1;
+				else
+					return -1;
+			}
+			if(this.annee < d.annee)
+				return 1;
+			else
+				return -1;
+		}
+
 	}
 
 }
