@@ -23,6 +23,17 @@ public class Evenement {
 		this.publi=publi;
 	}
 	
+	public Evenement(String nom, String description, Date dateDepart,Heure heureDepart, Heure heureFin, ArrayList<String> participants, boolean publi){
+		this.nom=nom;
+		this.description=description;
+		this.dateDepart=dateDepart;
+		this.dateFin=dateDepart;
+		this.heureDepart=heureDepart;
+		this.heureFin=heureFin;
+		this.participants=participants;
+		this.publi=publi;
+	}
+	
 	public Date getDateDepart(){
 		return dateDepart;
 	}
