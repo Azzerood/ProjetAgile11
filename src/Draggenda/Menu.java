@@ -51,7 +51,7 @@ public class Menu {
 		AfficherMenu();
 		SaisieNombre();
 	}
-	public String toString(){
+	public String afficherMenu(){
 		return "Votre Menu d'actions\n1- Consulter votre agenda\n2- Créer un événement\n3- Recherche d'utilisateur";
 	}
 }
