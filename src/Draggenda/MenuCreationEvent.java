@@ -24,7 +24,7 @@ public class MenuCreationEvent {
 	}
 	public int VerifJour(String day){
 		int rep=-1;
-		if(day.matches("[0-31]")){
+		if(day.matches("[0-9][0-9]")|| day.matches("[0-9]")){
 			rep=Integer.parseInt(day);
 		}
 		return rep;
@@ -36,7 +36,7 @@ public class MenuCreationEvent {
 	}
 	public int VerifMois(String month){
 		int rep=-1;
-		if(month.matches("[0-12]")){
+		if(month.matches("[0-9][0-9]") || month.matches("[0-9]")){
 			rep=Integer.parseInt(month);
 		}
 		return rep;
@@ -48,7 +48,7 @@ public class MenuCreationEvent {
 	}
 	public int VerifAnnee(String year){
 		int rep=-1;
-		if(year.matches("[0-9999]")){
+		if(year.matches("[0-9][0-9][0-9][0-9]")){
 			rep=Integer.parseInt(year);
 		}
 		return rep;
@@ -140,7 +140,7 @@ public class MenuCreationEvent {
 	
 	public int VerifHeure(String hour){
 		int rep=-1;
-		if(hour.matches("[0-24]")){
+		if(hour.matches("[0-9][0-9]")){
 			rep=Integer.parseInt(hour);
 		}
 		return rep;
@@ -149,17 +149,11 @@ public class MenuCreationEvent {
 	}
 	public int VerifMinute(String min){
 		int rep=-1;
-		if(min.matches("[0-60]")){
+		if(min.matches("[0-9][0-9]")){
 			rep=Integer.parseInt(min);
 		}
 		return rep;
 	}
 
-	public void VerifHeureFin(Heure debut, Heure fin){
-		
-	}
-	public void VerifHeureFin(){
-
-		
-	}
+	
 }
