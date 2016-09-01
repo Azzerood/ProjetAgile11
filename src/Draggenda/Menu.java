@@ -17,9 +17,10 @@ public class Menu {
 		agenda.afficher();
 	}
 
-	public Evenement CreateEvent() {
+	public Evenement CreateEvent(Agenda agenda) {
 		Evenement event= new MenuCreationEvent().CreeEvent();
 		System.out.println("L'évènement "+event.getNom()+" a été crée à la date "+event.getDateDepart()+" à "+event.getHeureDepart()+" et finira le "+event.getDateFin()+" à "+event.getHeureFin());
+		agenda.ajouterEvenement(event);
 		return event;
 	}
 
@@ -44,7 +45,7 @@ public class Menu {
 		if (nb == 1) {
 			Showagenda(agenda);
 		} else if (nb == 2) {
-			CreateEvent();
+			CreateEvent(agenda);
 		} else if (nb >2) {
 			
 		}
