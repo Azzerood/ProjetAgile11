@@ -7,11 +7,11 @@ public class Evenement {
 
 	private String nom;
 	private String description;
-	private String date;
+	private Date date;
 	private Heure heureDepart, heureFin;
 	private ArrayList<String> participants;
 	
-	public Evenement(String nom, String description, String date, Heure heureDepart, Heure heureFin, ArrayList<String> participants){
+	public Evenement(String nom, String description, Date date, Heure heureDepart, Heure heureFin, ArrayList<String> participants){
 		this.nom=nom;
 		this.description=description;
 		this.date=date;
@@ -20,12 +20,12 @@ public class Evenement {
 		this.participants=participants;
 	}
 	
-	public String getDate(){
+	public Date getDate(){
 		return date;
 	}
 
 	public String toString() {
-		return "Nom : " + nom + "\nDescription : " + description + "\nDate : " + date + "\nHeureDepart : "
+		return "Nom : " + nom + "\nDescription : " + description + "\nDate : " + date.toString() + "\nHeureDepart : "
 				+ heureDepart + "\nHeureFin : " + heureFin + "\nParticipants : " + participants + ".";
 	}
 
