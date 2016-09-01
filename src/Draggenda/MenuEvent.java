@@ -1,5 +1,6 @@
 package Draggenda;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MenuEvent {
@@ -9,14 +10,19 @@ public class MenuEvent {
 	public MenuEvent() {
 		sc = new Scanner(System.in);
 	}
-	
-	public String SearchByEvent() {
+
+	public String SearchByEvent(Agenda agenda) {
+		String s = "";
 		System.out.println("Saisir l'évenement à rechercher");
 		String rep = sc.nextLine();
-		return rep;
+		for (Evenement e : agenda.rechercherNom(rep)) {
+			s += e;
+		}
+		return s;
 	}
 
-	public Date SearchByDateDepart() {
+	public String SearchByDateDepart(Agenda agenda) {
+		String s = "";
 		System.out.println("Saisir la date voulu sour le format JJ/MM/AAAA");
 		System.out.println("Ne pas écrire les zéros inutils");
 		System.out.println("Saisir le jour");
@@ -25,7 +31,11 @@ public class MenuEvent {
 		int mois = sc.nextInt();
 		System.out.println("Saisir le annee");
 		int annee = sc.nextInt();
-		return new Date(jour, mois, annee);
+		Date d = new Date(jour, mois, annee);
+		for (Evenement e : agenda.rechercherDateDebut(d)) {
+			s += e;
+		}
+		return s;
 	}
 
 	public void ModifEvent(Evenement e) {
@@ -33,7 +43,7 @@ public class MenuEvent {
 		int rep = sc.nextInt();
 		if (rep == 1) {
 			e.modifier();
-			
+
 		}
 	}
 
