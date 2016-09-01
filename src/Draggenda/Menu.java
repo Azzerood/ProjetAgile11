@@ -28,7 +28,7 @@ public class Menu {
 	}
 	public int VerifNombre(String nb){
 		int nombre=-1;
-		if(nb.matches("[0-9]*")){
+		if(nb.matches("[0-9][0-9]*")){
 			nombre=Integer.parseInt(nb);
 		}
 		return nombre;

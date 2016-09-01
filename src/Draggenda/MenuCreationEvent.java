@@ -42,7 +42,7 @@ public class MenuCreationEvent {
 		String reponse=sc.nextLine();
 		return reponse;
 	}
-	public void VerifAnnee(String year){
+	public void VerifAnnee(){
 		
 	}
 	public String SaisirHeure(){
@@ -51,10 +51,10 @@ public class MenuCreationEvent {
 		return reponse;
 		
 	}
-	public void VerifHeure(String hour){
+	public void VerifHeure(){
 		
 	}
-	public void VerifHeureFin(String finalhour){
+	public void VerifHeureFin(){
 		
 	}
 }
