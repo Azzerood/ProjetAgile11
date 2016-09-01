@@ -20,43 +20,48 @@ public class Agenda {
 		}
 	}
 
-	public void ajouterEvenement(Evenement e) {calendrier.add(e);}
-	
-	public void trierCalendrier(Evenement e){
-		int i=0;
-		while(e.getDateDepart().compareTo(calendrier.get(i).getDateDepart())==-1){
+	public void ajouterEvenement(Evenement e) {
+		calendrier.add(e);
+		this.trierCalendrier(e);
+	}
+
+	public void trierCalendrier(Evenement e) {
+		int i = 0;
+		while (e.getDateDepart().compareTo(calendrier.get(i).getDateDepart()) == -1) {
 			i++;
 		}
-		if(e.getDateDepart().compareTo(calendrier.get(i).getDateDepart())==1){
-			calendrier.add(i,e);
-		}else{
-			while(e.getHeureDepart().compareHeure(calendrier.get(i).getHeureDepart())==-1){
+		if (e.getDateDepart().compareTo(calendrier.get(i).getDateDepart()) == 1) {
+			calendrier.add(i, e);
+		} else {
+			while (e.getHeureDepart().compareHeure(calendrier.get(i).getHeureDepart()) == -1) {
 				i++;
 			}
-				calendrier.add(i,e);
+			calendrier.add(i, e);
 		}
 	}
-	
-	public ArrayList<Evenement> rechercherDateDebut(Date d){
+
+	public ArrayList<Evenement> rechercherDateDebut(Date d) {
 		ArrayList<Evenement> result = new ArrayList<>();
-		
-		for(Evenement e : calendrier){
-			if(e.getDateDepart()== d)
+
+		for (Evenement e : calendrier) {
+			if (e.getDateDepart() == d)
 				result.add(e);
 		}
 		return result;
-		
+
 	}
-	
-	public ArrayList<Evenement> rechercherNom(String nom){
+
+	public ArrayList<Evenement> rechercherNom(String nom) {
 		ArrayList<Evenement> result = new ArrayList<>();
-		
-		for(Evenement e : calendrier){
-			if(e.getNom().equals(nom))
+
+		for (Evenement e : calendrier) {
+			if (e.getNom().equals(nom))
 				result.add(e);
 		}
 		return result;
 	}
-	
-	
+
+	public void supprimerEvent(Evenement e) {
+		calendrier.remove(e);
+	}
 }

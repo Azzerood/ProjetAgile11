@@ -38,22 +38,22 @@ public class MenuEvent {
 		return s;
 	}
 
-	public void ModifEvent(Evenement e) {
+	public void ModifEvent(Evenement e, Agenda a) {
 		System.out.println("Voulez-vous modifier un Evenement ? (1=Oui)");
 		int rep = sc.nextInt();
 		if (rep == 1) {
 			e.modifier();
+			a.trierCalendrier(e);
+			
 
 		}
 	}
 
-	public boolean DeleteEvent() {
+	public void DeleteEvent(Evenement e, Agenda a) {
 		System.out.println("Voulez-vous supprimer un evenement ? (1=Oui)");
 		int rep = sc.nextInt();
 		if (rep == 1) {
-			return true;
-		} else {
-			return false;
+			a.supprimerEvent(e);
 		}
 	}
 }
