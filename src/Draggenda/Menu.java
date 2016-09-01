@@ -39,13 +39,17 @@ public class Menu {
 			Showagenda();
 		}else if(nb==2){
 			CreateEvent();
-		}else{
+		}else if(nb==3){
 			SearchUsers();
 		}
 	}
 	public  void AfficherMenu(){		
 		System.out.println(new Menu().toString());
 		
+	}
+	public void DeroulerMenu(){
+		AfficherMenu();
+		SaisieNombre();
 	}
 	public String toString(){
 		return "Votre Menu d'actions\n1- Consulter votre agenda\n2- Créer un événement\n3- Recherche d'utilisateur";
