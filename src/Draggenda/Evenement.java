@@ -19,6 +19,10 @@ public class Evenement {
 		this.heureFin=heureFin;
 		this.participants=participants;
 	}
+	
+	public String getDate(){
+		return date;
+	}
 
 	public String toString() {
 		return "Nom : " + nom + "\nDescription : " + description + "\nDate : " + date + "\nHeureDepart : "
