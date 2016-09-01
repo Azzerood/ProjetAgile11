@@ -9,12 +9,12 @@ public class Menu {
 	public Menu() {
 	}
 
-	public void Showagenda() {
-		
+	public void Showagenda( Agenda agenda) {
+		agenda.afficher();
 	}
 
-	public void CreateEvent() {
-		
+	public Evenement CreateEvent() {
+		return new MenuCreationEvent().CreeEvent();
 	}
 
 	public void SearchUsers() {
@@ -37,9 +37,9 @@ public class Menu {
 		
 	}
 
-	public void LancerAction(int nb) {
+	public void LancerAction(int nb, Agenda agenda) {
 		if (nb == 1) {
-			Showagenda();
+			Showagenda(agenda);
 		} else if (nb == 2) {
 			CreateEvent();
 		} else if (nb == 3) {
