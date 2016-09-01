@@ -104,11 +104,12 @@ public class MenuCreationEvent {
 		Heure heureDebut = SaisirHeureDebutEvent();
 		Date dateFin;
 		Heure heureFin;
-		
+		do{
 			dateFin = saisirDateFinEvent(dateDebut);
-		
+		}while(dateDebut.compareTo(dateFin) == -1);
+		do{
 			heureFin = SaisirHeureFinEvent(dateDebut, heureDebut, dateFin);
-	
+		}while( (dateDebut.compareTo(dateFin) == 0) && (heureDebut.compareHeure(heureFin) == 1)  );
 		event= new Evenement(nom, description , dateDebut, dateFin, heureDebut, heureFin , null, true);
 		return event;
 	}
