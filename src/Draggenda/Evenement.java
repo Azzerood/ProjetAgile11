@@ -102,5 +102,4 @@ public class Evenement {
 	public String getNom() {
 		return nom;
 	}
-
 }
