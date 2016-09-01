@@ -27,7 +27,6 @@ public class Menu {
 	}
 
 	public String SaisieNombre() {
-		String nombre;
 		String reponse = sc.nextLine();
 		return reponse;
 	}
@@ -58,10 +57,12 @@ public class Menu {
 	public void DeroulerMenu() {
 		int choix ;
 		do{
-		AfficherMenu();
-		String rep=SaisieNombre();
-		choix = VerifNombre(rep);
-		LancerAction(choix, agenda);
+			AfficherMenu();
+			String rep=SaisieNombre();
+			choix = VerifNombre(rep);
+			if(choix>0 && choix<4){
+				LancerAction(choix, agenda);
+			}
 		}while(choix<3);
 		System.exit(1);
 	}

@@ -95,40 +95,43 @@ public class MenuCreationEvent {
 	
 	public Evenement CreeEvent(){
 		Evenement event;
+		System.out.println("Veuillez saisir le nom de votre évènement");
 		String nom=SaisirNom();
+		System.out.println("Veuillez saisir la description de votre évènement");
 		String description=SaisirDescription();
-		
-		System.out.println("Veuillez saisir le jour de début de votre évènement (nombre");
+		boolean dateIncorect=false;
+		System.out.println("Veuillez saisir le jour de début de votre évènement (nombre)");
 		int jour=saisieJour();
-		System.out.println("Veuillez saisir le mois de début de votre évènement (nombre");
+		System.out.println("Veuillez saisir le mois de début de votre évènement (nombre)");
 		int mois = saisieMois();
-		System.out.println("Veuillez saisir l'année de début de votre évènement (nombre");
+		System.out.println("Veuillez saisir l'année de début de votre évènement (nombre)");
 		int annee = saisieAnnee();
 	
 		Date dateDebut=new Date (jour,mois,annee);
-		System.out.println("Veuillez saisir l'heure de début de votre évènement (nombre");
+		System.out.println("Veuillez saisir l'heure de début de votre évènement (nombre)");
 		int heure = saisieHeure();
-		System.out.println("Veuillez saisir la minute de début de votre évènement (nombre");
+		System.out.println("Veuillez saisir la minute de début de votre évènement (nombre)");
 		int minute = saisieMinute();
 		Heure heureDebut= new Heure(heure,minute);
 		Date dateFin;
 		Heure heureFin;
 		
 			do{
-				System.out.println("Veuillez saisir le jour de fin de votre évènement (nombre");
+				System.out.println("Veuillez saisir le jour de fin de votre évènement (nombre)");
 			jour=saisieJour();
-			System.out.println("Veuillez saisir le mois de fin de votre évènement (nombre");
+			System.out.println("Veuillez saisir le mois de fin de votre évènement (nombre)");
 			mois = saisieMois();
-			System.out.println("Veuillez saisir l'année de fin de votre évènement (nombre");
+			System.out.println("Veuillez saisir l'année de fin de votre évènement (nombre)");
 			annee = saisieAnnee();
-			}while(dateDebut.compareTo(new Date(jour,mois,annee)) == 1);
+			}while(dateDebut.compareTo(new Date(jour,mois,annee)) == -1);
 			dateFin = new Date(jour,mois,annee) ;
+		
 			do{
-				System.out.println("Veuillez saisir l'heure de fin de votre évènement (nombre");
+				System.out.println("Veuillez saisir l'heure de fin de votre évènement (nombre)");
 				heure = saisieHeure();
-				System.out.println("Veuillez saisir la minute de fin de votre évènement (nombre");
+				System.out.println("Veuillez saisir la minute de fin de votre évènement (nombre)");
 				minute = saisieMinute();
-			}while(heureDebut.compareHeure(new Heure(heure,minute)) == 1);
+			}while(heureDebut.compareHeure(new Heure(heure,minute)) ==1 );
 		heureFin = new Heure(heure, minute);
 	
 		event= new Evenement(nom, description , dateDebut, dateFin, heureDebut, heureFin , null, true);
