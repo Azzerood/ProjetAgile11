@@ -34,15 +34,39 @@ public class MenuCreationEvent {
 		String reponse=sc.nextLine();
 		return reponse;
 	}
-	public void VerifMois(String month){
-		
+	public int VerifMois(String month){
+		int rep=-1;
+		if(rep >= 0 && rep <= 12 ){
+			rep=Integer.parseInt(month);
+		}
+		return rep;
 	}
 	public String SaisirAnnee(){
 		System.out.println("Veuillez saisir l'année");
 		String reponse=sc.nextLine();
 		return reponse;
 	}
-	public void VerifAnnee(String year){
+	public int VerifAnnee(String year){
+		int rep=-1;
+		if(rep >=0 && rep <= 9999){
+			rep=Integer.parseInt(year);
+		}
+		return rep;
+	}
+	public String SaisirMinute(){
+		System.out.println("Veuillez saisir les minutes");
+		String reponse=sc.nextLine();
+		return reponse;
+	}
+	public int VerifMinute(String min){
+		int rep=-1;
+		if(rep >= 0 && rep <= 60){
+			rep=Integer.parseInt(min);
+		}
+		return rep;
+	}
+	public int VerifDateFin(Date debut,Date fin){
+		  
 		
 	}
 	public String SaisirHeure(){
@@ -52,9 +76,10 @@ public class MenuCreationEvent {
 		
 	}
 	public void VerifHeure(String hour){
-		
+		String reponse1;
+		reponse1=SaisirHeure()+":"+SaisirMinute();
 	}
-	public void VerifHeureFin(String finalhour){
+	public void VerifHeureFin(int finalhour){
 		
 	}
 }
