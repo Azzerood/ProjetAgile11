@@ -8,10 +8,10 @@ public class Evenement {
 	private String nom;
 	private String description;
 	private String date;
-	private String heureDepart, heureFin;
+	private Heure heureDepart, heureFin;
 	private ArrayList<String> participants;
 	
-	public Evenement(String nom, String description, String date, String heureDepart, String heureFin, ArrayList<String> participants){
+	public Evenement(String nom, String description, String date, Heure heureDepart, Heure heureFin, ArrayList<String> participants){
 		this.nom=nom;
 		this.description=description;
 		this.date=date;
