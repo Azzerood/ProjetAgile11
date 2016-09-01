@@ -19,7 +19,18 @@ public class Agenda {
 
 	public void ajouterEvenement(Evenement e) {calendrier.add(e);}
 	
-	public void trierCalendrier(){
-		
+	public void trierCalendrier(Evenement e){
+		int i=0;
+		while(e.getDateDepart().compareTo(calendrier.get(i).getDateDepart())==-1){
+			i++;
+		}
+		if(e.getDateDepart().compareTo(calendrier.get(i).getDateDepart())==1){
+			calendrier.add(i,e);
+		}else{
+			while(e.getHeureDepart().compareHeure(calendrier.get(i).getHeureDepart())==-1){
+				i++;
+			}
+				calendrier.add(i,e);
+		}
 	}
 }
