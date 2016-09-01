@@ -99,4 +99,8 @@ public class Evenement {
 		return dateDepart+(dateDepart.compareTo(dateFin)==0? " ":" "+dateFin)+" "+heureDepart+" "+heureFin+" "+nom;
 	}
 
+	public String getNom() {
+		return nom;
+	}
+
 }
