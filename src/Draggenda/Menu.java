@@ -28,8 +28,6 @@ public class Menu {
 
 	public String SaisieNombre() {
 		String nombre;
-
-		System.out.println("Saisissez votre nombre");
 		String reponse = sc.nextLine();
 		return reponse;
 	}

@@ -59,7 +59,7 @@ public class MenuCreationEvent {
 			String j=SaisirJour();
 			jour=VerifJour(j);
 			
-			}while(jour<0 || jour>32);
+			}while(jour<0 || jour>31);
 		return jour;
 	}
 	public int saisieMois(){
@@ -67,7 +67,7 @@ public class MenuCreationEvent {
 		do{
 			String m=SaisirMois();
 			mois=VerifMois(m);
-			}while(mois<0 || mois>11);
+			}while(mois<0 || mois>12);
 		return mois;
 	}
 	public int saisieAnnee(){
