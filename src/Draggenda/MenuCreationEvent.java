@@ -24,7 +24,7 @@ public class MenuCreationEvent {
 	}
 	public int VerifJour(String day){
 		int rep=-1;
-		if(rep >= 1 && rep <= 31 ){
+		if(day.matches("") && rep <= 31 ){
 			rep=Integer.parseInt(day);
 		}
 		return rep;
@@ -69,6 +69,13 @@ public class MenuCreationEvent {
 		  
 		
 	}
+	public Evenement CreeEvent(){
+		String nom=SaisirNom();
+		String descriptino=SaisirDescription();
+		int jour=SaisirJour();
+		
+		
+	}
 	public String SaisirHeure(){
 		System.out.println("Veuillez saisir l'heure");
 		String reponse=sc.nextLine();
@@ -76,10 +83,15 @@ public class MenuCreationEvent {
 		
 	}
 	public void VerifHeure(String hour){
+		int rep=-1;
+		if(rep >= 0 && rep <= 12){
+			rep=Integer.parseInt(hour);
+		}
 		String reponse1;
 		reponse1=SaisirHeure()+":"+SaisirMinute();
+		
 	}
-	public void VerifHeureFin(int finalhour){
+	public void VerifHeureFin(Heure debut, Heure fin){
 		
 	}
 }
