@@ -25,7 +25,7 @@ public class Evenement {
 	}
 
 	public String toString() {
-		return "Nom : " + nom + "\nDescription : " + description + "\nDate : " + date.toString() + "\nHeureDepart : "
+		return "Nom : " + nom + "\nDescription : " + description + "\nDate : " + date + "\nHeureDepart : "
 				+ heureDepart + "\nHeureFin : " + heureFin + "\nParticipants : " + participants + ".";
 	}
 
