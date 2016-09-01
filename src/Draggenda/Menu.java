@@ -14,6 +14,7 @@ public class Menu {
 	}
 
 	public void CreateEvent() {
+		
 	}
 
 	public void SearchUsers() {
@@ -37,13 +38,11 @@ public class Menu {
 		return new Date(jour, mois, annee);
 	}
 
-	public boolean ModifEvent() {
+	public void ModifEvent(Evenement e) {
 		System.out.println("Voulez-vous modifier un Evenement ? (1=Oui)");
 		int rep = sc.nextInt();
 		if (rep == 1) {
-			return true;
-		} else {
-			return false;
+			e.modifier();
 		}
 	}
 
