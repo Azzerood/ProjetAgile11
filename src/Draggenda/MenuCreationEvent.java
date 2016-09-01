@@ -58,7 +58,8 @@ public class MenuCreationEvent {
 		return reponse;
 		
 	}
-<<<<<<< HEAD
+	
+
 	public void VerifHeure(String hour){
 		int rep=-1;
 		if(rep >= 0 && rep <= 12){
@@ -66,16 +67,16 @@ public class MenuCreationEvent {
 		}
 		String reponse1;
 		reponse1=SaisirHeure()+":"+SaisirMinute();
-=======
+	}
 	public void VerifHeure(){
->>>>>>> branch 'master' of https://github.com/Azzerood/ProjetAgile11.git
+
 		
 	}
-<<<<<<< HEAD
+
 	public void VerifHeureFin(Heure debut, Heure fin){
-=======
+	}
 	public void VerifHeureFin(){
->>>>>>> branch 'master' of https://github.com/Azzerood/ProjetAgile11.git
+
 		
 	}
 }
