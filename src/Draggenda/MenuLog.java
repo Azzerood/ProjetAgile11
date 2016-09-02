@@ -41,22 +41,37 @@ public class MenuLog {
 	public void seConnecter(){
 		String login;
 		String mdp;
+		int compteur=0;
 		do{
 	
 		login = SaisirNom();
 		
 		mdp = SaisirMdp();
+		compteur++;
+		if(compteur>=5){
+			System.out.println("......................................");
+			Menu();
+		}
 		}while(!log.CompteExiste(login, mdp));
+		
+		
 	}
 	public void Sinscrire(){
 		String login;
 		String mdp;
+		int compteur=0;
 		do{
 			
 		login = SaisirNom();
+		compteur++;
+		if(compteur>=5){
+			Menu();
+		}
 		}while(log.loginExiste(login));
 		mdp = SaisirMdp();
 		log.ajouterCompte(login, mdp);
+		
+		
 		
 	}
 	
