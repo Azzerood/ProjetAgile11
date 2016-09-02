@@ -6,6 +6,11 @@ import java.util.ArrayList;
 public class Agenda implements Serializable{
 
 	private ArrayList<Evenement> calendrier = new ArrayList<>();
+	private String login;
+	
+	public Agenda(String log){
+		login=log;
+	}
 
 	public void afficher() {
 		if (calendrier.isEmpty())

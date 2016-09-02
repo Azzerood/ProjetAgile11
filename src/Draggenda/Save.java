@@ -16,6 +16,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class Save{ 
+	ArrayList<String> listuser;
 
 	public void sauvegarder(Agenda age){
 		ObjectOutputStream ooss = null;
@@ -32,8 +33,32 @@ public class Save{
 		}
 	}
 	
+	public void nouveauUtilisateur(String newuser){
+		ArrayList<String> tmp=new ArrayList<>();
+		ObjectOutputStream ooss = null;
+		try {
+			BufferedReader bw = new BufferedReader(new FileReader("Sauvegarde.csv"));
+			String line=bw.readLine();
+			while(line!=null){
+				tmp.add(line);
+				line=bw.readLine();
+			}
+			ooss = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(new File("Sauvegarde.csv"))));
+			for(String ligne:tmp){
+				ooss.writeObject(ligne);
+			}
+			ooss.writeObject(newuser+new Agenda(newuser.substring(0,newuser.indexOf(';'))));
+			ooss.close();
+			//bw.close();
+		} catch (FileNotFoundException e1) {
+			e1.printStackTrace();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+	}
+	
 	public ArrayList<String> listeUtilisateur(){
-		ArrayList<String> listuser=new ArrayList<String>();
+		listuser=new ArrayList<String>();
 		try {
 			BufferedReader bw = new BufferedReader(new FileReader("Sauvegarde.csv"));
 			String line=bw.readLine();
@@ -51,7 +76,7 @@ public class Save{
 		
 	}
 
-	public Agenda charger(){
+	public Agenda charger(int i){
 		ObjectInputStream oiss = null;
 		Agenda age=null;
 		try {
@@ -63,12 +88,12 @@ public class Save{
 			try {
 				PrintWriter pw = new PrintWriter(new File("Sauvegarde.csv"));
 				pw.close();
-				age=new Agenda();
+				age=new Agenda(listuser.get(i).substring(0,listuser.indexOf(';')));
 			} catch (FileNotFoundException e1) {
 				e1.printStackTrace();
 			}
 		}catch(EOFException e){
-			age=new Agenda();
+			age=new Agenda(listuser.get(i).substring(0,listuser.indexOf(';')));
 		}catch (IOException e) {
 			e.printStackTrace();
 		}catch (ClassNotFoundException e) {
