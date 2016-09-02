@@ -50,7 +50,6 @@ public class Agenda implements Serializable{
 				result.add(e);
 		}
 		return result;
-
 	}
 
 	public ArrayList<Evenement> rechercherNom(String nom) {
