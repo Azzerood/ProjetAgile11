@@ -54,7 +54,10 @@ public class Menu implements Serializable{
 		} else if (nb == 2) {
 			CreateEvent(agenda);
 		} else if (nb >2) {
-			
+			if(nb == 3){
+				MenuEvent menuEvent = new MenuEvent();
+				
+			}
 		}
 	}
 
@@ -69,10 +72,10 @@ public class Menu implements Serializable{
 			AfficherMenu();
 			String rep=SaisieNombre();
 			choix = VerifNombre(rep);
-			if(choix>0 && choix<4){
+			if(choix>0 && choix<5){
 				LancerAction(choix, agenda);
 			}
-		}while(choix<3);
+		}while(choix<4);
 		//*********
 		save.sauvegarder(agenda);
 		//*********
@@ -80,6 +83,6 @@ public class Menu implements Serializable{
 	}
 
 	public String TexteMenu() {
-		return "Votre Menu d'actions\n1- Consulter votre agenda\n2- Creer un événement\n3- Quitter";
+		return "Votre Menu d'actions\n1- Consulter votre agenda\n2- Creer un événement\n3- Gerer les evenements\n4- Quitter";
 	}
 }
