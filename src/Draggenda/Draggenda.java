@@ -9,11 +9,13 @@ public class Draggenda {
 		logs.ajouterCompte("tutu", "toto");
 		MenuLog menuLog = new MenuLog();
 		String login;
+		String mdp;
 		do{
+	
 		login = menuLog.SaisirNom();
-		}while(logs.loginExiste(login));
-		String mdp = menuLog.SaisirMdp();
 		
+		mdp = menuLog.SaisirMdp();
+		}while(logs.CompteExiste(login, mdp));
 		
 		
 		ArrayList<String> participantsTest = new ArrayList<String>();
