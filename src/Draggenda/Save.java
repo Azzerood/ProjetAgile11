@@ -19,7 +19,7 @@ import java.util.ArrayList;
 public class Save{ 
 	ArrayList<String> listuser=new ArrayList<>();
 	Logs log;
-	
+
 	public Save(Logs log){
 		this.log=log;
 	}
@@ -73,8 +73,8 @@ public class Save{
 			fw.write(newuser);
 			fw.close();
 		} catch (FileNotFoundException e1) {
-			
-				e1.printStackTrace();
+
+			e1.printStackTrace();
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
@@ -90,7 +90,12 @@ public class Save{
 			}
 			bw.close();
 		} catch (FileNotFoundException e1) {
-			e1.printStackTrace();
+			try{
+				PrintWriter pw = new PrintWriter(new File("SauvegardeUtilisateur.csv"));
+				pw.close();
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			}
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
@@ -114,13 +119,13 @@ public class Save{
 				PrintWriter pw = new PrintWriter(new File("SauvegardeAgenda.txt"));
 				pw.close();
 				for(String nom:log.comptes.keySet())
-				age=new Agenda(nom);
+					age=new Agenda(nom);
 			} catch (FileNotFoundException e1) {
 				e1.printStackTrace();
 			}
 		}catch(EOFException e){
 			for(String nom:log.comptes.keySet())
-			age=new Agenda(nom);
+				age=new Agenda(nom);
 		}catch (IOException e) {
 			e.printStackTrace();
 		}catch (ClassNotFoundException e) {
@@ -128,6 +133,6 @@ public class Save{
 		}
 		return age;
 	}
-	
-	
+
+
 }
