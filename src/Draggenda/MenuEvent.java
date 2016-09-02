@@ -5,16 +5,17 @@ import java.util.Scanner;
 
 public class MenuEvent {
 
-	Scanner sc;
+	Scanner sc, sc2;
 
 	public MenuEvent() {
 		sc = new Scanner(System.in);
+		sc2 = new Scanner(System.in);
 	}
 
 	public String searchByEvent(Agenda agenda) {
 		String s = "";
 		System.out.println("Saisir l'évenement à rechercher");
-		String rep = sc.nextLine();
+		String rep = sc2.nextLine();
 		for (Evenement e : agenda.rechercherNom(rep)) {
 			s += e;
 		}
