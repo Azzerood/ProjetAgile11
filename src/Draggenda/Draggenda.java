@@ -14,7 +14,8 @@ public class Draggenda {
 		
 		Agenda agendaTest = new Agenda();
 		agendaTest.ajouterEvenement(testEvent);
-		Menu menuPrincipal = new Menu(agendaTest);
+		//Menu menuPrincipal = new Menu(agendaTest);
+		Menu menuPrincipal = new Menu();
 		menuPrincipal.DeroulerMenu();
 		
 	}

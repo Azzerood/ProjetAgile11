@@ -1,6 +1,8 @@
 package Draggenda;
 
-public class Heure {
+import java.io.Serializable;
+
+public class Heure implements Serializable{
 	
 	private int heure, minutes;
 	

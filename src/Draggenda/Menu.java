@@ -1,13 +1,20 @@
 package Draggenda;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class Menu {
+public class Menu implements Serializable{
 
 	Scanner sc = new Scanner(System.in);
 	Agenda agenda;
+	//*********
+	Save save=new Save();
+	//*********
 	
 	public Menu() {
+		//*********
+		agenda=save.charger();
+		//*********
 	}
 
 	public Menu(Agenda agenda) {
@@ -52,7 +59,8 @@ public class Menu {
 	}
 
 	public void AfficherMenu() {
-		System.out.println(new Menu().TexteMenu());
+		//System.out.println(new Menu().TexteMenu());
+		System.out.println(this.TexteMenu());
 	}
 
 	public void DeroulerMenu() {
@@ -65,6 +73,9 @@ public class Menu {
 				LancerAction(choix, agenda);
 			}
 		}while(choix<3);
+		//*********
+		save.sauvegarder(agenda);
+		//*********
 		System.exit(1);
 	}
 
