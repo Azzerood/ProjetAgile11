@@ -36,6 +36,7 @@ public class Save{
 	public void nouveauUtilisateur(String newuser){
 		ArrayList<String> tmp=new ArrayList<>();
 		ObjectOutputStream ooss = null;
+		listuser.add(newuser);
 		try {
 			BufferedReader bw = new BufferedReader(new FileReader("Sauvegarde.csv"));
 			String line=bw.readLine();
