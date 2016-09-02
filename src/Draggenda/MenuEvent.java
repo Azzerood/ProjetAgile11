@@ -14,9 +14,10 @@ public class MenuEvent {
 
 	public String searchByEvent(Agenda agenda) {
 		String s = "";
-		System.out.println("Saisir l'évenement à rechercher");
+		System.out.println("Saisir l'evenement a rechercher");
 		String rep = sc2.nextLine();
 		for (Evenement e : agenda.rechercherNom(rep)) {
+			System.out.println(e.getNom());
 			s += e;
 		}
 		return s;
@@ -33,7 +34,7 @@ public class MenuEvent {
 	public String searchByDateDepart(Agenda agenda) {
 		String s = "";
 		System.out.println("Saisir la date voulu sour le format JJ/MM/AAAA");
-		System.out.println("Ne pas écrire les zéros inutils");
+		System.out.println("Ne pas �crir les zeros inutils");
 		System.out.println("Saisir le jour");
 		int jour = sc.nextInt();
 		System.out.println("Saisir le mois");
