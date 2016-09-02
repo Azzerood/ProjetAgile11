@@ -32,7 +32,7 @@ public class Save{
 			e1.printStackTrace();
 		}
 	}
-	
+
 	public void nouveauUtilisateur(String newuser){
 		ArrayList<String> tmp=new ArrayList<>();
 		ObjectOutputStream ooss = null;
@@ -52,12 +52,24 @@ public class Save{
 			ooss.close();
 			//bw.close();
 		} catch (FileNotFoundException e1) {
-			e1.printStackTrace();
+			try {
+				PrintWriter pw = new PrintWriter(new File("Sauvegarde.csv"));
+				ooss = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(new File("Sauvegarde.csv"))));
+				ooss.writeObject(newuser+new Agenda(newuser.substring(0,newuser.indexOf(';'))));
+				ooss.close();
+				pw.close();
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
 	}
-	
+
 	public ArrayList<String> listeUtilisateur(){
 		try {
 			BufferedReader bw = new BufferedReader(new FileReader("Sauvegarde.csv"));
@@ -73,7 +85,7 @@ public class Save{
 			e1.printStackTrace();
 		}
 		return listuser;
-		
+
 	}
 
 	public Agenda charger(int i){
@@ -87,7 +99,7 @@ public class Save{
 			age=(Agenda)converting;
 			oiss.close();
 		} catch (FileNotFoundException e) {
-			
+
 			try {
 				PrintWriter pw = new PrintWriter(new File("Sauvegarde.csv"));
 				pw.close();
@@ -105,5 +117,5 @@ public class Save{
 		return age;
 	}
 
-	
+
 }
