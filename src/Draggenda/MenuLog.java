@@ -8,8 +8,10 @@ public class MenuLog {
 	String motdepasse;
 	Scanner sc= new Scanner(System.in);
 	Logs log;
-	public MenuLog(Logs l){
+	Save s;
+	public MenuLog(Logs l, Save s){
 		this.log=l;
+		this.s=s;
 	}
 	
 	public String SaisirNom(){
@@ -32,6 +34,8 @@ public class MenuLog {
 			seConnecter(); 
 		}else if(reponseMenu==2){
 			Sinscrire();
+			s.nouveauUtilisateur(nom+";"+motdepasse);
+			System.out.println(nom+";"+motdepasse);
 		}
 	}
 	public void seConnecter(){
