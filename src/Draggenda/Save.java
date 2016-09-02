@@ -16,7 +16,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class Save{ 
-	ArrayList<String> listuser;
+	ArrayList<String> listuser=new ArrayList<>();
 
 	public void sauvegarder(Agenda age){
 		ObjectOutputStream ooss = null;
@@ -59,7 +59,6 @@ public class Save{
 	}
 	
 	public ArrayList<String> listeUtilisateur(){
-		listuser=new ArrayList<String>();
 		try {
 			BufferedReader bw = new BufferedReader(new FileReader("Sauvegarde.csv"));
 			String line=bw.readLine();
@@ -82,6 +81,9 @@ public class Save{
 		Agenda age=null;
 		try {
 			oiss = new ObjectInputStream(new BufferedInputStream(new FileInputStream(new File("Sauvegarde.csv"))));
+			String conversion=(String)oiss.readObject();
+			conversion=conversion.substring(conversion.lastIndexOf(';'));
+			
 			age=(Agenda)oiss.readObject();
 			oiss.close();
 		} catch (FileNotFoundException e) {
