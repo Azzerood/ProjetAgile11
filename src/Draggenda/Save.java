@@ -20,15 +20,24 @@ public class Save{
 	ArrayList<String> listuser=new ArrayList<>();
 
 	public void sauvegarder(Agenda age){
-		Menu
+		Logs log=new Logs();
 		ObjectOutputStream ooss = null;
 		try {
-			age.getlog();
-			//BufferedReader bw = new BufferedReader(new FileReader("Sauvegarde.csv"));
+			ArrayList<String> tmp=new ArrayList<>();
+			int idxligne=log.retournerIndexUser(age.getlog());
+			BufferedReader bw = new BufferedReader(new FileReader("Sauvegarde.csv"));
+			String line=bw.readLine();
+			while(line!=null){
+				tmp.add(line);
+				line=bw.readLine();
+			}
 			ooss = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(new File("SauvegardeAgenda.csv"))));
+			for(String ligne:tmp){
+				ooss.writeObject(ligne);
+			}
 			ooss.writeObject(age);
 			ooss.close();
-			//bw.close();
+			bw.close();
 		} catch (FileNotFoundException e1) {
 			e1.printStackTrace();
 		} catch (IOException e1) {
