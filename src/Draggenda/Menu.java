@@ -11,15 +11,13 @@ public class Menu implements Serializable{
 	Save save=new Save();
 	//*********
 	 
-	public Menu() {
+	public Menu(int idx) {
 		//*********
-		agenda=save.charger();
+		agenda=save.charger(idx);
 		//*********
 	}
 
-	public Menu(Agenda agenda) {
-	this.agenda = agenda;
-	}
+	
 	public void Showagenda( Agenda agenda) {
 		agenda.afficher();
 	}
