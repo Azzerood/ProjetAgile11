@@ -9,9 +9,9 @@ public class Draggenda {
 		logs.ajouterCompte("tutu", "toto");
 		MenuLog menuLog = new MenuLog(logs);
 		menuLog.Menu();
+		int index=logs.retournerIndexUser(menuLog.nom);
 		
-		
-		Menu menuPrincipal = new Menu(0);
+		Menu menuPrincipal = new Menu(index);
 		menuPrincipal.DeroulerMenu();
 		
 	}
