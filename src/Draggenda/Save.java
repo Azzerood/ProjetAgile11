@@ -20,9 +20,10 @@ public class Save{
 	ArrayList<String> listuser=new ArrayList<>();
 
 	public void sauvegarder(Agenda age){
+		Menu
 		ObjectOutputStream ooss = null;
 		try {
-			age
+			age.getlog();
 			//BufferedReader bw = new BufferedReader(new FileReader("Sauvegarde.csv"));
 			ooss = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(new File("SauvegardeAgenda.csv"))));
 			ooss.writeObject(age);
@@ -37,7 +38,6 @@ public class Save{
 
 	public void nouveauUtilisateur(String newuser){
 		listuser.add(newuser);
-		System.out.println(listuser.size());
 		try {
 			FileWriter fw=new FileWriter("SauvegardeUtilisateur.csv");
 			fw.write(newuser);
@@ -88,6 +88,7 @@ public class Save{
 				e1.printStackTrace();
 			}
 		}catch(EOFException e){
+			System.out.println(listuser.size());
 			age=new Agenda(listuser.get(idx).substring(0,listuser.indexOf(';')));
 		}catch (IOException e) {
 			e.printStackTrace();
