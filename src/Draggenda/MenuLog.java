@@ -28,9 +28,9 @@ public class MenuLog {
 		int reponseMenu=sc.nextInt();
 		
 		if(reponseMenu==1){
-			LancerMenuLog();
+			seConnecter();
 		}else if(reponseMenu==2){
-			
+			Sinscrire();
 		}
 	}
 	public void seConnecter(){
@@ -47,9 +47,9 @@ public class MenuLog {
 		String login;
 		String mdp;
 		do{
-	
+			
 		login = SaisirNom();
-		}while(!log.loginExiste(login));
+		}while(log.loginExiste(login));
 		mdp = SaisirMdp();
 		log.ajouterCompte(login, mdp);
 		
