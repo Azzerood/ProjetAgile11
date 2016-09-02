@@ -75,7 +75,7 @@ public class Date implements Serializable{
 	}
 
 	public String toString() {
-		return /* JourSemaine() + " " + */getJour() + " " + getMoisEnLettre() + " " + getAnnee() + "\n";
+		return /* JourSemaine() + " " + */getJour() + " " + getMoisEnLettre() + " " + getAnnee() ;
 	}
 
 	public int compareTo(Date d) {
