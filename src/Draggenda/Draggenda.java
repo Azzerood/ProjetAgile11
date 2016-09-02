@@ -15,7 +15,7 @@ public class Draggenda {
 		login = menuLog.SaisirNom();
 		
 		mdp = menuLog.SaisirMdp();
-		}while(logs.CompteExiste(login, mdp));
+		}while(!logs.CompteExiste(login, mdp));
 		
 		
 		ArrayList<String> participantsTest = new ArrayList<String>();
