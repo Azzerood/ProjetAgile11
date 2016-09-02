@@ -18,14 +18,18 @@ import java.util.ArrayList;
 
 public class Save{ 
 	ArrayList<String> listuser=new ArrayList<>();
+	Logs log;
+	
+	public Save(Logs log){
+		this.log=log;
+	}
 
 	public void sauvegarder(Agenda age){
-		Logs log=new Logs();
 		ObjectOutputStream ooss = null;
 		try {
 			ArrayList<String> tmp=new ArrayList<>();
 			int idxligne=log.retournerIndexUser(age.getlog());
-			BufferedReader bw = new BufferedReader(new FileReader("Sauvegarde.csv"));
+			BufferedReader bw = new BufferedReader(new FileReader("SauvegardeAgenda.csv"));
 			String line=bw.readLine();
 			while(line!=null){
 				tmp.add(line);
@@ -46,7 +50,6 @@ public class Save{
 	}
 
 	public void nouveauUtilisateur(String newuser){
-		listuser.add(newuser);
 		try {
 			FileWriter fw=new FileWriter("SauvegardeUtilisateur.csv");
 			fw.write(newuser);
@@ -92,13 +95,14 @@ public class Save{
 			try {
 				PrintWriter pw = new PrintWriter(new File("SauvegardeAgenda.csv"));
 				pw.close();
-				age=new Agenda(listuser.get(idx).substring(0,listuser.indexOf(';')));
+				for(String nom:log.comptes.keySet())
+				age=new Agenda(nom);
 			} catch (FileNotFoundException e1) {
 				e1.printStackTrace();
 			}
 		}catch(EOFException e){
-			System.out.println(listuser.size());
-			age=new Agenda(listuser.get(idx).substring(0,listuser.indexOf(';')));
+			for(String nom:log.comptes.keySet())
+			age=new Agenda(nom);
 		}catch (IOException e) {
 			e.printStackTrace();
 		}catch (ClassNotFoundException e) {

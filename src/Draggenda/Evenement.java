@@ -61,7 +61,7 @@ public class Evenement implements Serializable{
 	}
 
 	public void modifier(){
-		Menu menu=new Menu(0);
+		Menu menu=new Menu(0,new Save(new Logs()));
 		MenuCreationEvent menuevent=new MenuCreationEvent();
 		int choix=-1;
 		while(choix!=7){

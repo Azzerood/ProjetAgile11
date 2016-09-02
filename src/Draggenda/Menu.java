@@ -7,11 +7,10 @@ public class Menu implements Serializable{
 
 	Scanner sc = new Scanner(System.in);
 	Agenda agenda;
-	//*********
-	Save save=new Save();
-	//*********
+	Save save;
 	 
-	public Menu(int idx) {
+	public Menu(int idx, Save save) {
+		this.save=save;
 		//*********
 		agenda=save.charger(idx);
 		//*********
