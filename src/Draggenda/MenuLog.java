@@ -37,8 +37,7 @@ public class MenuLog {
 			s.nouveauUtilisateur(nom+";"+motdepasse);
 			log.comptes.clear();
 			log.deserialiser(s.listeUtilisateur());
-			System.out.println(log.comptes.toString());
-			System.out.println(nom+";"+motdepasse);
+			
 			
 		}
 	}
