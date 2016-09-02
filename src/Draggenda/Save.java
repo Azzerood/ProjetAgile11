@@ -33,21 +33,22 @@ public class Save {
 
 	public Agenda charger(){
 		ObjectInputStream oiss = null;
-		Agenda age=new Agenda();
+		Agenda age=null;
 		try {
-			oiss = new ObjectInputStream(new BufferedInputStream(new FileInputStream(new File("sauvegarde.csv"))));
-			if(oiss.readObject()!=null){
+			oiss = new ObjectInputStream(new BufferedInputStream(new FileInputStream(new File("Sauvegarde.csv"))));
 			age=(Agenda)oiss.readObject();
-			}
 			oiss.close();
 		} catch (FileNotFoundException e) {
+			System.out.println("test1");
 			try {
 				PrintWriter pw = new PrintWriter(new File("Sauvegarde.csv"));
 				pw.close();
+				age=new Agenda();
 			} catch (FileNotFoundException e1) {
 				e1.printStackTrace();
 			}
 		}catch(EOFException e){
+			age=new Agenda();
 		}catch (IOException e) {
 			e.printStackTrace();
 		}catch (ClassNotFoundException e) {
