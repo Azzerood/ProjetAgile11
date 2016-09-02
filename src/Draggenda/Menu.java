@@ -82,6 +82,6 @@ public class Menu implements Serializable{
 	}
 
 	public String TexteMenu() {
-		return "Votre Menu d'actions\n1- Consulter votre agenda\n2- Creer un événement\n3- Quitter";
+		return "Votre Menu d'actions\n1- Consulter votre agenda\n2- Creer un événement\n3-Sauvegarder et Quitter";
 	}
 }

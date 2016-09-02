@@ -30,9 +30,7 @@ public class MenuLog {
 		do{
 			System.out.println("1- Se connecter");
 			System.out.println("2- S'inscrire");
-			Scanner scanner = new Scanner(System.in);
-			reponseMenu=scanner.nextLine();
-			scanner.close();
+			reponseMenu=new Scanner(System.in).nextLine();
 		}while(reponseMenu.matches("[0-9]") && (rep=Integer.parseInt(reponseMenu))>2 || rep<=0);
 		if(rep==1){
 			seConnecter(); 
