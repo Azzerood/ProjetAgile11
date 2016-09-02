@@ -40,6 +40,20 @@ public class Logs {
 			this.comptes.put(login, mdp);
 		}
 	}
+	public int retournerIndexUser(String login){
+		int idx = 0;
+		for (String mapKey : comptes.keySet()) {
+			System.out.println("mapKey: "+mapKey);
+			System.out.println("login: "+login);
+			System.out.println("indice: "+idx);
+			if(mapKey.compareTo(login)==0){
+				System.out.println("match !");
+				return idx;
+			}
+			idx+=1;
+		}
+		return idx;
+	}
 	
 	public boolean loginExiste(String login){
 		return comptes.containsKey(login);

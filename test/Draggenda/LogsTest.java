@@ -63,4 +63,16 @@ public class LogsTest {
 		assertFalse(test.CompteExiste("titi", "toto"));
 	}
 
+	@Test
+	public void retournerIndexUser() {
+		Logs test= new Logs();
+		test.ajouterCompte("azzedine", "enidezza");
+		test.ajouterCompte("toto", "tutu");
+		test.ajouterCompte("tutu","toto" );
+		assertEquals(0,test.retournerIndexUser("azzedine"));
+		assertEquals(1,test.retournerIndexUser("enidezza"));
+		assertNotEquals(0,test.retournerIndexUser("enidezza"));
+		assertEquals(2,test.retournerIndexUser("tutu"));
+	}
+
 }
