@@ -66,4 +66,5 @@ public class Agenda implements Serializable{
 	public void supprimerEvent(Evenement e) {calendrier.remove(e);}
 	
 	public ArrayList<Evenement> getCalendrier(){return this.calendrier;}
+	
 }
