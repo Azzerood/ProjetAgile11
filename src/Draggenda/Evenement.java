@@ -56,7 +56,7 @@ public class Evenement implements Serializable{
 	}
 
 	public String toString() {
-		return "Nom : " + nom + "\nDescription : " + description +"\nEvenement "+(publi? "Public":"Prive")+"\nDate de Debut : " + dateDepart + "Date de Fin : " + dateFin +"\nHeureDepart : "
+		return "Nom : " + nom + "\nDescription : " + description +"\nEvenement "+(publi? "Public":"Prive")+"\n\nDate de Debut : " + dateDepart + "\nDate de Fin : " + dateFin +"\nHeureDepart : "
 				+ heureDepart + "\nHeureFin : " + heureFin + "\nParticipants : " + participants + ".";
 	}
 
@@ -65,7 +65,7 @@ public class Evenement implements Serializable{
 		MenuCreationEvent menuevent=new MenuCreationEvent();
 		int choix=-1;
 		while(choix!=7){
-			System.out.println("Que voulez vous modifier?\n1-Nom\n2-Description\n3-Visibilté\n4-Date\n5-Heure\n6-Participants\n7-Retour");
+			System.out.println("Que voulez vous modifier?\n1-Nom\n2-Description\n3-Visibiltï¿½\n4-Date\n5-Heure\n6-Participants\n7-Retour");
 			choix=menu.VerifNombre(menu.SaisieNombre());
 			while(choix<=0|| choix >7){
 				System.out.println("Choix incorrect");
@@ -90,7 +90,7 @@ public class Evenement implements Serializable{
 	}
 
 	public String toStringresum(){
-		return nom+" le "+dateDepart+(dateDepart.compareTo(dateFin)==0? "":""+"jusqu'au"+dateFin)+"à "+heureDepart+" jusque "+heureFin+" ";
+		return nom+"\nle "+dateDepart+(dateDepart.compareTo(dateFin)==0? "\n":" jusqu'au "+dateFin+"\n")+"a "+heureDepart+" jusque "+heureFin;
 	}
 
 	public String getNom() {
