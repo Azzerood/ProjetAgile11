@@ -21,9 +21,7 @@ public class Agenda implements Serializable{
 		}
 	}
 
-	public void ajouterEvenement(Evenement e) {
-		this.trierCalendrier(e);
-	}
+	public void ajouterEvenement(Evenement e) {this.trierCalendrier(e);}
 
 	public void trierCalendrier(Evenement e) {
 		if(calendrier.isEmpty()){
@@ -65,7 +63,8 @@ public class Agenda implements Serializable{
 		return result;
 	}
 
-	public void supprimerEvent(Evenement e) {
-		calendrier.remove(e);
-	}
+	public void supprimerEvent(Evenement e) {calendrier.remove(e);}
+	
+	public ArrayList<Evenement> getCalendrier(){return this.calendrier;}
+	
 }
