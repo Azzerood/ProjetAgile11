@@ -90,7 +90,7 @@ public class Evenement implements Serializable{
 	}
 
 	public String toStringresum(){
-		return nom+" le "+dateDepart+(dateDepart.compareTo(dateFin)==0? "":""+dateFin)+"à "+heureDepart+" jusque "+heureFin+" ";
+		return nom+" le "+dateDepart+(dateDepart.compareTo(dateFin)==0? "":""+"jusqu'au"+dateFin)+"à "+heureDepart+" jusque "+heureFin+" ";
 	}
 
 	public String getNom() {
