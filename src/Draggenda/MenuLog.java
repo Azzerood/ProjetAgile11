@@ -35,6 +35,8 @@ public class MenuLog {
 		}else if(reponseMenu==2){
 			Sinscrire();
 			s.nouveauUtilisateur(nom+";"+motdepasse);
+			log.deserialiser(s.listeUtilisateur());
+			System.out.println(log.comptes.toString());
 			System.out.println(nom+";"+motdepasse);
 		}
 	}
