@@ -39,8 +39,7 @@ public class Agenda implements Serializable{
 			}
 			if(i==calendrier.size()){
 				calendrier.add(e);
-			}
-			if (e.getDateDepart().compareTo(calendrier.get(i).getDateDepart()) == 1) {
+			}else if (e.getDateDepart().compareTo(calendrier.get(i).getDateDepart()) == 1) {
 				calendrier.add(i, e);
 			} else {
 				while (i<calendrier.size() && e.getHeureDepart().compareHeure(calendrier.get(i).getHeureDepart()) == -1) {
