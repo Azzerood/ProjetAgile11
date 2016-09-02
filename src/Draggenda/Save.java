@@ -22,7 +22,7 @@ public class Save{
 		ObjectOutputStream ooss = null;
 		try {
 			//BufferedReader bw = new BufferedReader(new FileReader("Sauvegarde.csv"));
-			ooss = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(new File("Sauvegarde.csv"))));
+			ooss = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(new File("SauvegardeUtilisateur.csv"))));
 			ooss.writeObject(age);
 			ooss.close();
 			//bw.close();
@@ -38,13 +38,13 @@ public class Save{
 		ObjectOutputStream ooss = null;
 		listuser.add(newuser);
 		try {
-			BufferedReader bw = new BufferedReader(new FileReader("Sauvegarde.csv"));
+			BufferedReader bw = new BufferedReader(new FileReader("SauvegardeUtilisateur.csv"));
 			String line=bw.readLine();
 			while(line!=null){
 				tmp.add(line);
 				line=bw.readLine();
 			}
-			ooss = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(new File("Sauvegarde.csv"))));
+			ooss = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(new File("SauvegardeUtilisateur.csv"))));
 			for(String ligne:tmp){
 				ooss.writeObject(ligne);
 			}
@@ -53,8 +53,8 @@ public class Save{
 			//bw.close();
 		} catch (FileNotFoundException e1) {
 			try {
-				PrintWriter pw = new PrintWriter(new File("Sauvegarde.csv"));
-				ooss = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(new File("Sauvegarde.csv"))));
+				PrintWriter pw = new PrintWriter(new File("SauvegardeUtilisateur.csv"));
+				ooss = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(new File("SauvegardeUtilisateur.csv"))));
 				ooss.writeObject(newuser+new Agenda(newuser.substring(0,newuser.indexOf(';'))));
 				ooss.close();
 				pw.close();
@@ -72,10 +72,10 @@ public class Save{
 
 	public ArrayList<String> listeUtilisateur(){
 		try {
-			BufferedReader bw = new BufferedReader(new FileReader("Sauvegarde.csv"));
+			BufferedReader bw = new BufferedReader(new FileReader("SauvegardeUtilisateur.csv"));
 			String line=bw.readLine();
 			while(line!=null){
-				listuser.add(line.substring(0, line.lastIndexOf(';')));
+				listuser.add(line);
 				line=bw.readLine();
 			}
 			bw.close();
@@ -92,16 +92,13 @@ public class Save{
 		ObjectInputStream oiss = null;
 		Agenda age=null;
 		try {
-			oiss = new ObjectInputStream(new BufferedInputStream(new FileInputStream(new File("Sauvegarde.csv"))));
-			String conversion=(String)oiss.readObject();
-			conversion=conversion.substring(conversion.lastIndexOf(';'));
-			Object converting=conversion;
-			age=(Agenda)converting;
+			oiss = new ObjectInputStream(new BufferedInputStream(new FileInputStream(new File("SauvegardeAgenda.csv"))));
+			age=(Agenda)oiss.readObject();
 			oiss.close();
 		} catch (FileNotFoundException e) {
 
 			try {
-				PrintWriter pw = new PrintWriter(new File("Sauvegarde.csv"));
+				PrintWriter pw = new PrintWriter(new File("SauvegardeAgenda.csv"));
 				pw.close();
 				age=new Agenda(listuser.get(i).substring(0,listuser.indexOf(';')));
 			} catch (FileNotFoundException e1) {
