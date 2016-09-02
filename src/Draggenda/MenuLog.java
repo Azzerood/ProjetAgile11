@@ -29,7 +29,7 @@ public class MenuLog {
 		int reponseMenu=new Scanner(System.in).nextInt();
 		
 		if(reponseMenu==1){
-			seConnecter();
+			seConnecter(); 
 		}else if(reponseMenu==2){
 			Sinscrire();
 		}
