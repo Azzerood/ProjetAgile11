@@ -64,6 +64,7 @@ public class MenuEvent {
 	}
 
 	public void menuEvenement(Agenda agenda) {
+		Evenement event = null;
 		System.out.println("Que voulez-vous faire");
 		System.out.println("1- Chercher un evenement par son nom");
 		System.out.println("2- Chercher un evenement par sa date de depart");
@@ -72,14 +73,26 @@ public class MenuEvent {
 		int rep = sc.nextInt();
 		if (rep == 1) {
 			searchByEvent(agenda);
-			System.out.println("" + retourEvenement(agenda, searchByEvent(agenda)).toString());
+			event = retourEvenement(agenda, searchByEvent(agenda));
+			if (event != null) {
+				System.out.println(event.toString());
+			}
 		} else if (rep == 2) {
 			searchByDateDepart(agenda);
-			System.out.println("" + retourEvenement(agenda, searchByDateDepart(agenda)).toString());
+			event = retourEvenement(agenda, searchByDateDepart(agenda));
+			if (event != null) {
+				System.out.println(event.toString());
+			}
 		} else if (rep == 3) {
-			modifEvent(retourEvenement(agenda, searchByEvent(agenda)), agenda);
+			event = retourEvenement(agenda, searchByEvent(agenda));
+			if (event != null) {
+				modifEvent(event, agenda);
+			}
 		} else if (rep == 4) {
-			deleteEvent(retourEvenement(agenda, searchByEvent(agenda)), agenda);
+			event = retourEvenement(agenda, searchByEvent(agenda));
+			if (event != null) {
+				deleteEvent(event, agenda);
+			}
 		}
 	}
 }
