@@ -46,6 +46,10 @@ public class Agenda implements Serializable{
 			}
 		}
 	}
+	
+	public String getlog(){
+		return login;
+	}
 
 	public ArrayList<Evenement> rechercherDateDebut(Date d) {
 		ArrayList<Evenement> result = new ArrayList<>();

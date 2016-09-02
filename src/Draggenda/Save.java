@@ -22,6 +22,7 @@ public class Save{
 	public void sauvegarder(Agenda age){
 		ObjectOutputStream ooss = null;
 		try {
+			age
 			//BufferedReader bw = new BufferedReader(new FileReader("Sauvegarde.csv"));
 			ooss = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(new File("SauvegardeAgenda.csv"))));
 			ooss.writeObject(age);
@@ -35,9 +36,8 @@ public class Save{
 	}
 
 	public void nouveauUtilisateur(String newuser){
-		ArrayList<String> tmp=new ArrayList<>();
-		ObjectOutputStream ooss = null;
 		listuser.add(newuser);
+		System.out.println(listuser.size());
 		try {
 			FileWriter fw=new FileWriter("SauvegardeUtilisateur.csv");
 			fw.write(newuser);
