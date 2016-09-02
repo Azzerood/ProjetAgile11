@@ -25,7 +25,8 @@ public class MenuLog {
 	public void Menu(){
 		System.out.println("1- Se connecter");
 		System.out.println("2- S'inscrire");
-		int reponseMenu=sc.nextInt();
+	
+		int reponseMenu=new Scanner(System.in).nextInt();
 		
 		if(reponseMenu==1){
 			seConnecter();
