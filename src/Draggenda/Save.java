@@ -9,6 +9,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -22,7 +23,7 @@ public class Save{
 		ObjectOutputStream ooss = null;
 		try {
 			//BufferedReader bw = new BufferedReader(new FileReader("Sauvegarde.csv"));
-			ooss = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(new File("SauvegardeUtilisateur.csv"))));
+			ooss = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(new File("SauvegardeAgenda.csv"))));
 			ooss.writeObject(age);
 			ooss.close();
 			//bw.close();
@@ -38,33 +39,12 @@ public class Save{
 		ObjectOutputStream ooss = null;
 		listuser.add(newuser);
 		try {
-			BufferedReader bw = new BufferedReader(new FileReader("SauvegardeUtilisateur.csv"));
-			String line=bw.readLine();
-			while(line!=null){
-				tmp.add(line);
-				line=bw.readLine();
-			}
-			ooss = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(new File("SauvegardeUtilisateur.csv"))));
-			for(String ligne:tmp){
-				ooss.writeObject(ligne);
-			}
-			ooss.writeObject(newuser+new Agenda(newuser.substring(0,newuser.indexOf(';'))));
-			ooss.close();
-			//bw.close();
+			FileWriter fw=new FileWriter("SauvegardeUtilisateur.csv");
+			fw.write(newuser);
+			fw.close();
 		} catch (FileNotFoundException e1) {
-			try {
-				PrintWriter pw = new PrintWriter(new File("SauvegardeUtilisateur.csv"));
-				ooss = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(new File("SauvegardeUtilisateur.csv"))));
-				ooss.writeObject(newuser+new Agenda(newuser.substring(0,newuser.indexOf(';'))));
-				ooss.close();
-				pw.close();
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+			
+				e1.printStackTrace();
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
@@ -88,11 +68,14 @@ public class Save{
 
 	}
 
-	public Agenda charger(int i){
+	public Agenda charger(int idx){
 		ObjectInputStream oiss = null;
 		Agenda age=null;
 		try {
 			oiss = new ObjectInputStream(new BufferedInputStream(new FileInputStream(new File("SauvegardeAgenda.csv"))));
+			for(int i=0; i<idx; i++){
+				oiss.readObject();
+			}
 			age=(Agenda)oiss.readObject();
 			oiss.close();
 		} catch (FileNotFoundException e) {
@@ -100,12 +83,12 @@ public class Save{
 			try {
 				PrintWriter pw = new PrintWriter(new File("SauvegardeAgenda.csv"));
 				pw.close();
-				age=new Agenda(listuser.get(i).substring(0,listuser.indexOf(';')));
+				age=new Agenda(listuser.get(idx).substring(0,listuser.indexOf(';')));
 			} catch (FileNotFoundException e1) {
 				e1.printStackTrace();
 			}
 		}catch(EOFException e){
-			age=new Agenda(listuser.get(i).substring(0,listuser.indexOf(';')));
+			age=new Agenda(listuser.get(idx).substring(0,listuser.indexOf(';')));
 		}catch (IOException e) {
 			e.printStackTrace();
 		}catch (ClassNotFoundException e) {
