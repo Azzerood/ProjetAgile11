@@ -56,7 +56,7 @@ public class Menu implements Serializable{
 		} else if (nb >2) {
 			if(nb == 3){
 				MenuEvent menuEvent = new MenuEvent();
-				
+				menuEvent.menuEvenement(agenda);
 			}
 		}
 	}
