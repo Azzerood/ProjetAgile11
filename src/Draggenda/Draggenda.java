@@ -7,16 +7,8 @@ public class Draggenda {
 	public static void main(String[] args) {
 		Logs logs = new Logs();
 		logs.ajouterCompte("tutu", "toto");
-		MenuLog menuLog = new MenuLog();
-		String login;
-		String mdp;
-		do{
-	
-		login = menuLog.SaisirNom();
-		
-		mdp = menuLog.SaisirMdp();
-		}while(!logs.CompteExiste(login, mdp));
-		
+		MenuLog menuLog = new MenuLog(logs);
+		menuLog.Menu();
 		
 		ArrayList<String> participantsTest = new ArrayList<String>();
 		participantsTest.add("nom1"); 
