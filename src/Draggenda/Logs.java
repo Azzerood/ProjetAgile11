@@ -66,16 +66,4 @@ public class Logs {
 		}
 		return true;
 	}
-	public void saveComptes(){
-		ArrayList<String> serial = serialiser();
-		//TODO
-		//il faut stocker chaque string de serial dans une ligne du fichier csv
-	}
-	
-	public ArrayList<String> loadComptes(){
-		ArrayList<String> serial = serialiser();
-	
-		//TODO
-		return serial;
-	}
 }

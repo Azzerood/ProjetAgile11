@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class Heure implements Serializable {
 
+	private static final long serialVersionUID = 1L;
 	private int heure, minutes;
 
 	public Heure(int heure, int minutes) {

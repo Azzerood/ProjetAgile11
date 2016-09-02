@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Evenement implements Serializable{
 
-
+	private static final long serialVersionUID = 1L;
 	private String nom;
 	private String description;
 	private Date dateDepart, dateFin;
@@ -81,10 +81,10 @@ public class Evenement implements Serializable{
 				publi=!publi;
 			}else if(choix==4){
 				dateDepart=menuevent.SaisirDateDebutEvent();
-				dateFin=menuevent.saisirDateFinEvent(dateDepart);
+				dateFin=menuevent.saisirDateFinEvent();
 			}else if(choix==5){
 				heureDepart=menuevent.SaisirHeureDebutEvent();
-				heureFin=menuevent.SaisirHeureFinEvent(dateDepart, heureDepart, dateFin);
+				heureFin=menuevent.SaisirHeureFinEvent();
 			}
 		}
 	}

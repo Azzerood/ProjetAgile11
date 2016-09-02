@@ -25,23 +25,41 @@ public class Save{
 	}
 
 	public void sauvegarder(Agenda age){
+		int i=0;
 		ObjectOutputStream ooss = null;
+		ObjectInputStream oiss = null;
 		try {
-			ArrayList<String> tmp=new ArrayList<>();
 			int idxligne=log.retournerIndexUser(age.getlog());
-			BufferedReader bw = new BufferedReader(new FileReader("SauvegardeAgenda.csv"));
-			String line=bw.readLine();
-			while(line!=null){
-				tmp.add(line);
-				line=bw.readLine();
-			}
-			ooss = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(new File("SauvegardeAgenda.csv"))));
-			for(String ligne:tmp){
-				ooss.writeObject(ligne);
+			oiss = new ObjectInputStream(new BufferedInputStream(new FileInputStream(new File("SauvegardeAgenda.txt"))));
+			ooss = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(new File("SauvegardeAgenda.txt"))));
+			Agenda line=(Agenda)oiss.readObject();
+			while(line!=null && i<idxligne){
+				ooss.writeObject(line);
+				i++;
+				line=(Agenda)oiss.readObject();
 			}
 			ooss.writeObject(age);
+			i++;
+			line=(Agenda)oiss.readObject();
+			while(line!=null){
+				ooss.writeObject(line);
+				line=(Agenda)oiss.readObject();
+
+			}
 			ooss.close();
-			bw.close();
+			oiss.close();
+		}catch (EOFException e){
+			try {
+				ooss = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(new File("SauvegardeAgenda.txt"))));
+				ooss.writeObject(age);
+				ooss.close();
+			} catch (FileNotFoundException e1) {
+				e1.printStackTrace();
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+		}catch (ClassNotFoundException e) {
+			e.printStackTrace();
 		} catch (FileNotFoundException e1) {
 			e1.printStackTrace();
 		} catch (IOException e1) {
@@ -84,7 +102,7 @@ public class Save{
 		ObjectInputStream oiss = null;
 		Agenda age=null;
 		try {
-			oiss = new ObjectInputStream(new BufferedInputStream(new FileInputStream(new File("SauvegardeAgenda.csv"))));
+			oiss = new ObjectInputStream(new BufferedInputStream(new FileInputStream(new File("SauvegardeAgenda.txt"))));
 			for(int i=0; i<idx; i++){
 				oiss.readObject();
 			}
@@ -93,7 +111,7 @@ public class Save{
 		} catch (FileNotFoundException e) {
 
 			try {
-				PrintWriter pw = new PrintWriter(new File("SauvegardeAgenda.csv"));
+				PrintWriter pw = new PrintWriter(new File("SauvegardeAgenda.txt"));
 				pw.close();
 				for(String nom:log.comptes.keySet())
 				age=new Agenda(nom);
@@ -110,5 +128,6 @@ public class Save{
 		}
 		return age;
 	}
+	
 	
 }

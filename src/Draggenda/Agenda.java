@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 public class Agenda implements Serializable{
 
+	private static final long serialVersionUID = 1L;
 	private ArrayList<Evenement> calendrier = new ArrayList<>();
 	private String login;
 	
@@ -33,13 +34,16 @@ public class Agenda implements Serializable{
 			calendrier.add(e);
 		}else{
 			int i = 0;
-			while (e.getDateDepart().compareTo(calendrier.get(i).getDateDepart()) == -1) {
+			while (i<calendrier.size() && e.getDateDepart().compareTo(calendrier.get(i).getDateDepart()) == -1) {
 				i++;
+			}
+			if(i==calendrier.size()){
+				calendrier.add(e);
 			}
 			if (e.getDateDepart().compareTo(calendrier.get(i).getDateDepart()) == 1) {
 				calendrier.add(i, e);
 			} else {
-				while (e.getHeureDepart().compareHeure(calendrier.get(i).getHeureDepart()) == -1) {
+				while (i<calendrier.size() && e.getHeureDepart().compareHeure(calendrier.get(i).getHeureDepart()) == -1) {
 					i++;
 				}
 				calendrier.add(i, e);

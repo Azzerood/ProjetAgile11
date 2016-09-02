@@ -5,6 +5,8 @@ import java.util.Scanner;
 
 public class Menu implements Serializable{
 
+
+	private static final long serialVersionUID = 1L;
 	Scanner sc = new Scanner(System.in);
 	Agenda agenda;
 	Save save;

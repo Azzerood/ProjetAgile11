@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class Date implements Serializable{
 
+	private static final long serialVersionUID = 1L;
 	int jour, mois, annee;
 
 	Date(int jour, int mois, int annee) {

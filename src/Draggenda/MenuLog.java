@@ -25,19 +25,22 @@ public class MenuLog {
 		return motdepasse;
 	}
 	public void Menu(){
-		System.out.println("1- Se connecter");
-		System.out.println("2- S'inscrire");
-	
-		int reponseMenu=new Scanner(System.in).nextInt();
-		
-		if(reponseMenu==1){
+		String reponseMenu;
+		int rep=0;
+		do{
+			System.out.println("1- Se connecter");
+			System.out.println("2- S'inscrire");
+			Scanner scanner = new Scanner(System.in);
+			reponseMenu=scanner.nextLine();
+			scanner.close();
+		}while(reponseMenu.matches("[0-9]") && (rep=Integer.parseInt(reponseMenu))>2 || rep<=0);
+		if(rep==1){
 			seConnecter(); 
-		}else if(reponseMenu==2){
+		}else if(rep==2){
 			Sinscrire();
 			s.nouveauUtilisateur(nom+";"+motdepasse);
 			log.comptes.clear();
 			log.deserialiser(s.listeUtilisateur());
-			
 			
 		}
 	}
