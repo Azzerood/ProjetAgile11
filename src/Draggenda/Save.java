@@ -83,8 +83,8 @@ public class Save{
 			oiss = new ObjectInputStream(new BufferedInputStream(new FileInputStream(new File("Sauvegarde.csv"))));
 			String conversion=(String)oiss.readObject();
 			conversion=conversion.substring(conversion.lastIndexOf(';'));
-			
-			age=(Agenda)oiss.readObject();
+			Object converting=conversion;
+			age=(Agenda)converting;
 			oiss.close();
 		} catch (FileNotFoundException e) {
 			
